@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>일본어 히라가나 형용사 60 마스터</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #eef2ff;
+      --primary-dark: #3730a3;
+      --success: #10b981;
+      --success-bg: #d1fae5;
+      --warning: #f59e0b;
+      --warning-bg: #fef3c7;
+      --danger: #ef4444;
+      --danger-bg: #fee2e2;
+      --fav: #eab308;
+      --fav-bg: #fef9c3;
+      --gray-bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border: #e5e7eb;
+      --jp-font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: #e5e7eb;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .jp {
+      font-family: var(--jp-font);
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      background: var(--gray-bg);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 25px rgba(0,0,0,0.12);
+      padding-bottom: 76px;
+    }
+
+    /* 상단 헤더 */
+    .app-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-back {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .btn-shortcut {
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* 화면 공통 */
+    .screen {
+      display: none;
+      padding: 14px;
+      flex: 1;
+      animation: fadeIn 0.18s ease-in-out;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-box {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    /* 단축키 요약 바 */
+    .shortcut-bar {
+      background: #1e1b4b;
+      color: #e0e7ff;
+      font-size: 0.74rem;
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kbd {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: monospace;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* 홈 배너 */
+    .hero-banner {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 15px rgba(79,70,229,0.25);
+    }
+
+    .hero-banner h2 {
+      margin: 0 0 6px 0;
+      font-size: 1.2rem;
+    }
+
+    .hero-banner p {
+      margin: 0 0 12px 0;
+      font-size: 0.85rem;
+      opacity: 0.92;
+    }
+
+    .progress-bar-wrap {
+      background: rgba(255,255,255,0.25);
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-fill {
+      background: #34d399;
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* 메인 메뉴 그리드 */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .menu-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 13px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      transition: transform 0.12s, border-color 0.12s;
+    }
+
+    .menu-btn:active { transform: scale(0.97); }
+    .menu-btn:hover { border-color: var(--primary); }
+    .menu-icon { font-size: 1.6rem; }
+    .menu-title { font-size: 0.95rem; font-weight: 800; color: var(--text-main); }
+    .menu-desc { font-size: 0.76rem; color: var(--text-sub); line-height: 1.35; }
+
+    /* 필터 탭 */
+    .tab-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab-chip {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab-chip.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 상태 배지 */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .status-unlearned { background: #f3f4f6; color: #4b5563; border: 1px solid #d1d5db; }
+    .status-hard { background: var(--warning-bg); color: #b45309; border: 1px solid #fcd34d; }
+    .status-mastered { background: var(--success-bg); color: #047857; border: 1px solid #6ee7b7; }
+
+    /* 즐겨찾기 별 버튼 */
+    .fav-btn {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      line-height: 1;
+      transition: transform 0.15s;
+    }
+
+    .fav-btn:active {
+      transform: scale(1.25);
+    }
+
+    /* 형용사 타일 그리드 (히라가나 중심) */
+    .adj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .adj-tile {
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.1s;
+    }
+
+    .adj-tile:active { transform: scale(0.97); }
+    .adj-tile.tile-hard { border-color: #fbbf24; background: #fffbeb; }
+    .adj-tile.tile-mastered { border-color: #34d399; background: #ecfdf5; }
+
+    .tile-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .type-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* 히라가나를 가장 크게 표시 */
+    .tile-kana-main {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin: 2px 0;
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    /* 한자는 아래에 작게 보조 표시 */
+    .tile-kanji-sub {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    .tile-meaning {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin-top: 6px;
+    }
+
+    /* 버튼 공통 */
+    .btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.1s;
+    }
+
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-outline { background: #fff; color: var(--text-main); border: 1px solid var(--border); }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-warning { background: var(--warning); color: #fff; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-fav { background: var(--fav-bg); color: #854d0e; border: 1px solid #fde047; }
+    .btn-block { width: 100%; }
+
+    /* 플래시카드 3D (히라가나 중심) */
+    .flashcard-stage {
+      perspective: 1000px;
+      width: 100%;
+      height: 300px;
+      margin: 12px 0;
+      cursor: pointer;
+    }
+
+    .flashcard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .flashcard-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .fc-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: #fff;
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .fc-back {
+      transform: rotateY(180deg);
+      background: #f8fafc;
+      border-color: var(--primary);
+    }
+
+    .fc-top-bar {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fc-main-kana {
+      font-size: 2.55rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 10px 0 6px;
+      line-height: 1.25;
+    }
+
+    .fc-sub-kanji {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+
+    /* 따라쓰기 캔버스 영역 */
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      height: 210px;
+      background: #fff;
+      border: 2px dashed #818cf8;
+      border-radius: 16px;
+      overflow: hidden;
+      touch-action: none;
+      margin: 8px 0;
+    }
+
+    .canvas-wrapper canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .stroke-under-box {
+      background: #f8fafc;
+      border: 2px solid var(--primary-light);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* 퀴즈 보기 */
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .quiz-opt-btn {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-opt-btn.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: #065f46;
+    }
+
+    .quiz-opt-btn.wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: #991b1b;
+    }
+
+    /* 히라가나 타일 키보드 */
+    .kana-pool {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 12px 0;
+    }
+
+    .kana-key {
+      min-width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      border: 2px solid var(--primary);
+      background: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kana-key:active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .answer-slots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      min-height: 52px;
+      padding: 10px;
+      background: #f8fafc;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .slot-box {
+      min-width: 42px;
+      height: 42px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding: 0 8px;
+    }
+
+    /* 모달 공통 */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 300;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 20px 16px 28px;
+      overflow-y: auto;
+      animation: slideUp 0.2s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    /* 하단 네비게이션 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 6px 4px;
+      z-index: 200;
+    }
+
+    .nav-item {
+      border: none;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 4px 2px;
+    }
+
+    .nav-item.active { color: var(--primary); }
+    .nav-item span.icon { font-size: 1.25rem; }
+
+    .conj-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+
+    .conj-table th, .conj-table td {
+      border: 1px solid var(--border);
+      padding: 7px 9px;
+      text-align: left;
+    }
+
+    .conj-table th {
+      background: #f9fafb;
+      width: 36%;
+      color: var(--text-sub);
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- 상단 헤더 -->
+  <header class="app-header">
+    <div class="header-left">
+      <button class="btn-back" id="btnBack" onclick="navigate('home')" style="display:none;" aria-label="홈으로">←</button>
+      <h1 class="app-title" id="headerTitle">히라가나 형용사 60 마스터</h1>
+    </div>
+    <div class="header-right">
+      <span class="header-badge" id="headerBadge">진도 0%</span>
+      <button class="btn-shortcut" onclick="openShortcutModal()" title="단축키 안내">⌨️ 단축키</button>
+    </div>
+  </header>
+
+  <!-- 1. 메인 홈 화면 -->
+  <main class="screen active" id="screen-home">
+    <div class="hero-banner">
+      <h2>🌱 히라가나로 쉽게 배우는 형용사 60</h2>
+      <p>초보자 맞춤형! 히라가나를 먼저 익히고 한자는 자연스럽게 보조로 확인해요.</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="homeProgressBar"></div>
+      </div>
+      <div class="hero-stats">
+        <span id="homeStatMastered">✅ 암기: 0/60</span>
+        <span id="homeStatFav">⭐ 즐겨찾기: 0개</span>
+        <span id="homeStatHard">🔥 복습: 0개</span>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <button class="menu-btn" onclick="navigate('table')">
+        <span class="menu-icon">📋</span>
+        <span class="menu-title">히라가나 형용사 표</span>
+        <span class="menu-desc">히라가나 중심 60개 목록 & ⭐즐겨찾기 관리</span>
+      </button>
+      <button class="menu-btn" onclick="navigate('flashcard')">
+        <span class="menu-icon">🃏</span>
+        <span class="menu-title">히라가나 플래시카드</span>
+        <span class="menu-desc">히라가나 보고 암기 & 즐겨찾기 단어 집중 복습</span>
+      </button>
+      <button class="menu-btn" onclick="navigate('stroke')">
+        <span class="menu-icon">✍️</span>
+        <span class="menu-title">히라가나 쓰기 연습</span>
+        <span class="menu-desc">おおきい를 크게 따라 쓰고 아래에 大きい 확인</span>
+      </button>
+      <button class="menu-btn" onclick="navigate('mnemonic')">
+        <span class="menu-icon">💡</span>
+        <span class="menu-title">연상 암기 & 예문</span>
+        <span class="menu-desc">재미있는 발음 연상법과 초보자용 예문 듣기</span>
+      </button>
+      <button class="menu-btn" onclick="navigate('quiz')">
+        <span class="menu-icon">🎮</span>
+        <span class="menu-title">퀴즈 및 미니게임</span>
+        <span class="menu-desc">히라가나 뜻 맞히기, 타임어택, ⭐즐겨찾기 훈련</span>
+      </button>
+      <button class="menu-btn" onclick="navigate('imagegame')">
+        <span class="menu-icon">🖼️</span>
+        <span class="menu-title">그림 보고 히라가나 조합</span>
+        <span class="menu-desc">히라가나 글자 타일 선택 또는 직접 입력</span>
+      </button>
+      <button class="menu-btn" style="grid-column: span 2;" onclick="navigate('stats')">
+        <span class="menu-icon">📊</span>
+        <span class="menu-title">학습 현황 & 즐겨찾기 단어장</span>
+        <span class="menu-desc">내가 ⭐즐겨찾기한 단어, 오답 노트, 전체 진도 관리</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- 2. 형용사 60선 도감 표 (히라가나 최우선) -->
+  <section class="screen" id="screen-table">
+    <div class="tab-row">
+      <button class="tab-chip active" onclick="setTableFilter('all', this)">전체 (60)</button>
+      <button class="tab-chip" onclick="setTableFilter('fav', this)">⭐ 즐겨찾기</button>
+      <button class="tab-chip" onclick="setTableFilter('i', this)">い형용사 (30)</button>
+      <button class="tab-chip" onclick="setTableFilter('na', this)">な형용사 (30)</button>
+      <button class="tab-chip" onclick="setTableFilter('unlearned', this)">⚪ 미학습</button>
+      <button class="tab-chip" onclick="setTableFilter('hard', this)">🔥 어려움</button>
+      <button class="tab-chip" onclick="setTableFilter('mastered', this)">✅ 암기완료</button>
+    </div>
+
+    <div style="font-size:0.78rem; color:var(--text-sub); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+      <span>💡 카드를 누르면 상세 학습, 우측 상단 <strong>☆</strong>를 누르면 즐겨찾기됩니다.</span>
+    </div>
+
+    <div class="adj-grid" id="adjTableGrid"></div>
+  </section>
+
+  <!-- 3. 플래시카드 화면 (히라가나 암기 모드 + 즐겨찾기 + 단축키) -->
+  <section class="screen" id="screen-flashcard">
+    <div class="shortcut-bar">
+      <span>⌨️ <span class="kbd">Space</span> 뒤집기</span>
+      <span><span class="kbd">←</span><span class="kbd">→</span> 이동</span>
+      <span><span class="kbd">S</span> 발음</span>
+      <span><span class="kbd">F</span> ⭐즐겨찾기</span>
+      <span><span class="kbd">1</span> 어려움 <span class="kbd">2</span>/<span class="kbd">M</span> 암기</span>
+    </div>
+
+    <div class="card-box" style="padding:12px;">
+      <div style="display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center;">
+        <div>
+          <label for="fcModeSelect" style="font-size:0.78rem; font-weight:800; color:var(--text-sub);">플래시카드 학습 모드</label>
+          <select id="fcModeSelect" onchange="initFlashcards()" style="width:100%; padding:9px; border-radius:10px; border:1px solid var(--border); margin-top:4px; font-weight:700; font-size:0.86rem;">
+            <option value="kana_only">1. [초보추천] 히라가나(おおきい) 보고 뜻·한자 암기</option>
+            <option value="kana_with_kanji">2. 히라가나 + 아래 작은 한자 함께 보고 뜻 암기</option>
+            <option value="kr_to_kana">3. 한국어 뜻 보고 히라가나(おおきい) 맞히기</option>
+            <option value="kanji_to_kana">4. 한자(大きい) 보고 히라가나·뜻 맞히기</option>
+            <option value="fav">5. ⭐ 즐겨찾기한 단어만 집중 학습</option>
+            <option value="hard">6. 🔥 어려운 단어만 집중 복습</option>
+            <option value="unlearned">7. ⚪ 미학습 단어만 학습</option>
+            <option value="mastered">8. ✅ 암기 완료한 단어 복습</option>
+          </select>
+        </div>
+        <button class="btn btn-outline" style="margin-top:18px; padding:9px 11px;" onclick="shuffleFlashcards()" title="단축키 R">🔀 섞기</button>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:0 4px;">
+      <span id="fcCounter" style="font-size:0.88rem; font-weight:800; color:var(--text-sub);">1 / 60</span>
+      <div style="display:flex; gap:6px;">
+        <button class="btn btn-fav" id="fcFavBtn" style="padding:6px 10px; font-size:0.8rem;" onclick="toggleCurrentFCFav(event)">☆ 즐겨찾기 (F)</button>
+        <button class="btn btn-outline" style="padding:6px 10px; font-size:0.8rem;" onclick="speakCurrentFC(event)">🔊 발음 (S)</button>
+      </div>
+    </div>
+
+    <div class="flashcard-stage" onclick="flipFlashcard()">
+      <div class="flashcard-inner" id="fcInner">
+        <!-- 카드 앞면 -->
+        <div class="fc-face fc-front">
+          <div class="fc-top-bar">
+            <span class="type-tag" id="fcTypeTag">い형용사</span>
+            <span class="status-pill status-unlearned" id="fcStatusBadge">⚪ 미학습</span>
+          </div>
+          <div class="fc-main-kana jp" lang="ja" id="fcFrontMain">おおきい</div>
+          <div class="fc-sub-kanji jp" lang="ja" id="fcFrontSub">大きい</div>
+          <div style="font-size:0.8rem; color:#9ca3af; margin-top:8px;" id="fcFrontHint">카드를 터치하거나 [Space] 키를 눌러 뒤집기</div>
+        </div>
+        <!-- 카드 뒷면 -->
+        <div class="fc-face fc-back">
+          <div style="font-size:2rem;" id="fcBackEmoji">🐘</div>
+          <div class="jp" lang="ja" style="font-size:1.75rem; font-weight:900; color:var(--primary-dark);" id="fcBackKana">おおきい</div>
+          <div class="jp" lang="ja" style="font-size:0.95rem; font-weight:700; color:var(--text-sub); margin-bottom:4px;" id="fcBackKanji">한자 표기: 大きい [ookii]</div>
+          <div style="font-size:1.3rem; font-weight:900; color:var(--primary); margin-bottom:8px;" id="fcBackMeaning">크다</div>
+          <div style="font-size:0.8rem; color:var(--text-sub); background:#eef2ff; padding:8px 10px; border-radius:10px; line-height:1.4;" id="fcBackMnemonic"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <button class="btn btn-warning" onclick="markFlashcard('hard')">🔥 아직 어려움 (1)</button>
+      <button class="btn btn-success" onclick="markFlashcard('mastered')">✅ 알고 있음 (2 / M)</button>
+    </div>
+
+    <div style="display:flex; gap:8px;">
+      <button class="btn btn-outline btn-block" onclick="moveFlashcard(-1)">◀ 이전 (←)</button>
+      <button class="btn btn-outline btn-block" onclick="moveFlashcard(1)">다음 (→) ▶</button>
+    </div>
+  </section>
+
+  <!-- 4. 히라가나 중심 쓰기 연습 화면 (おおきい 크게 + 아래 大きい 표시) -->
+  <section class="screen" id="screen-stroke">
+    <div class="shortcut-bar">
+      <span>⌨️ <span class="kbd">Space</span> 재생/일시정지</span>
+      <span><span class="kbd">←</span><span class="kbd">→</span> 이전/다음 단어</span>
+      <span><span class="kbd">C</span> 지우기</span>
+      <span><span class="kbd">F</span> ⭐즐겨찾기</span>
+    </div>
+
+    <div class="card-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+        <select id="strokeWordSelect" onchange="selectStrokeWord(this.value)" style="flex:1; padding:10px; border-radius:10px; border:1px solid var(--border); font-weight:700;"></select>
+        <button class="btn btn-fav" id="strokeFavBtn" onclick="toggleFavById(currentStrokeId, renderStrokeFavBtn)">☆</button>
+        <button class="btn btn-outline" onclick="speakWordById(currentStrokeId)">🔊</button>
+      </div>
+    </div>
+
+    <div class="card-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+        <span style="font-size:0.86rem; font-weight:800; color:var(--primary-dark);">
+          ✍️ 히라가나 크게 따라 쓰기 연습장
+        </span>
+        <span style="font-size:0.76rem; color:var(--text-sub);">손가락·마우스로 위에서 따라 써 보세요</span>
+      </div>
+
+      <!-- 히라가나(おおきい)가 크게 표시되는 캔버스 -->
+      <div class="canvas-wrapper" id="strokeCanvasWrap">
+        <canvas id="guideCanvas"></canvas>
+        <canvas id="drawCanvas"></canvas>
+      </div>
+
+      <!-- 캔버스 바로 아래에 한자(大きい)와 뜻이 적혀 있는 영역 -->
+      <div class="stroke-under-box">
+        <div style="font-size:0.78rem; color:var(--text-sub); font-weight:700;">아래 한자 표기 & 한국어 뜻</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-top:4px; flex-wrap:wrap;">
+          <span class="jp" lang="ja" id="strokeUnderKanji" style="font-size:1.55rem; font-weight:900; color:var(--text-main);">大きい</span>
+          <span style="font-size:1.15rem; font-weight:800; color:var(--primary);" id="strokeUnderMeaning">🐘 크다</span>
+          <span style="font-size:0.85rem; color:var(--text-sub);" id="strokeUnderRomaji">[ookii]</span>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin-top:12px;">
+        <button class="btn btn-primary" onclick="playStrokeAnim()">▶ 히라가나 획순 재생</button>
+        <button class="btn btn-outline" onclick="togglePauseStrokeAnim()">⏸ 일시정지 / 계속 (Space)</button>
+        <button class="btn btn-outline" onclick="replayStrokeAnim()">🔄 처음부터 다시 보기</button>
+        <button class="btn btn-danger" onclick="clearUserDrawing()">🧹 내가 쓴 글씨 지우기 (C)</button>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:10px;">
+        <button class="btn btn-outline btn-block" onclick="stepStrokeWord(-1)">◀ 이전 단어 (←)</button>
+        <button class="btn btn-outline btn-block" onclick="stepStrokeWord(1)">다음 단어 (→) ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 연상 암기법 & 관련 예문 학습 화면 -->
+  <section class="screen" id="screen-mnemonic">
+    <div class="card-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+        <select id="mnemWordSelect" onchange="renderMnemonicScreen(this.value)" style="flex:1; padding:10px; border-radius:10px; border:1px solid var(--border); font-weight:700;"></select>
+        <button class="btn btn-fav" id="mnemFavBtn" onclick="toggleFavById(currentMnemId, () => renderMnemonicScreen(currentMnemId))">☆</button>
+        <button class="btn btn-primary" onclick="openDetailModal(currentMnemId)">활용표</button>
+      </div>
+    </div>
+
+    <div class="card-box" id="mnemContentBox"></div>
+    <div class="card-box" id="mnemQuizBox"></div>
+  </section>
+
+  <!-- 6. 퀴즈 및 미니게임 화면 (히라가나 중심 + 즐겨찾기 퀴즈 포함) -->
+  <section class="screen" id="screen-quiz">
+    <div class="shortcut-bar">
+      <span>⌨️ 숫자키 <span class="kbd">1</span> ~ <span class="kbd">4</span> 보기 즉시 선택</span>
+      <span><span class="kbd">S</span> 문제 발음 듣기</span>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-chip active" onclick="startQuizMode('kana2kr', this)">게임A: 히라가나→뜻</button>
+      <button class="tab-chip" onclick="startQuizMode('kr2kana', this)">게임B: 뜻→히라가나</button>
+      <button class="tab-chip" onclick="startQuizMode('timeattack', this)">게임C: 60초 챌린지</button>
+      <button class="tab-chip" onclick="startQuizMode('favonly', this)">⭐ 즐겨찾기 퀴즈</button>
+      <button class="tab-chip" onclick="startQuizMode('hardonly', this)">🔥 어려운 단어 훈련</button>
+    </div>
+
+    <div class="card-box" id="quizPlayArea"></div>
+  </section>
+
+  <!-- 7. 이미지 & 히라가나 입력 맞히기 화면 -->
+  <section class="screen" id="screen-imagegame">
+    <div class="card-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span style="font-weight:800; font-size:0.9rem;">히라가나 입력 방식</span>
+        <div style="display:flex; gap:6px;">
+          <button class="tab-chip active" id="btnImgModeTile" onclick="setImgInputMode('tile')">방식A: 히라가나 타일</button>
+          <button class="tab-chip" id="btnImgModeKey" onclick="setImgInputMode('keyboard')">방식B: 키보드 입력</button>
+        </div>
+      </div>
+
+      <div style="text-align:center; padding:14px 10px; background:#f8fafc; border-radius:16px; border:1px solid var(--border); position:relative;">
+        <button class="fav-btn" id="imgGameFavBtn" onclick="toggleFavById(currentImgWord.id, updateImgFavIcon)" style="position:absolute; top:10px; right:10px;">☆</button>
+        <div style="font-size:3.3rem;" id="imgGameEmoji">🐘</div>
+        <div style="font-size:1.3rem; font-weight:900; margin-top:6px;" id="imgGamePrompt">뜻: 크다</div>
+        <div class="jp" lang="ja" style="font-size:0.9rem; color:var(--text-sub); margin-top:4px;" id="imgGameHint">아래 참고 한자: 大きい (い형용사)</div>
+      </div>
+
+      <!-- 방식 A: 히라가나 타일 선택 -->
+      <div id="imgTileModeUI" style="margin-top:14px;">
+        <div style="font-size:0.8rem; color:var(--text-sub); text-align:center; margin-bottom:6px;">
+          히라가나 타일을 순서대로 눌러 단어를 완성하세요
+        </div>
+        <div class="answer-slots jp" lang="ja" id="imgAnswerSlots"></div>
+        <div class="kana-pool jp" lang="ja" id="imgKanaPool"></div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-outline btn-block" onclick="resetImgTiles()">지우기</button>
+          <button class="btn btn-primary btn-block" onclick="checkImgAnswer()">정답 확인</button>
+        </div>
+      </div>
+
+      <!-- 방식 B: 일본어 키보드 직접 입력 -->
+      <div id="imgKeyModeUI" style="display:none; margin-top:14px;">
+        <input type="text" id="imgKeyboardInput" class="jp" lang="ja" placeholder="히라가나 입력 (예: おおきい)" style="width:100%; padding:13px; font-size:1.1rem; border-radius:12px; border:2px solid var(--primary); margin-bottom:10px;" onkeydown="if(event.key==='Enter') checkImgAnswer()" />
+        <button class="btn btn-primary btn-block" onclick="checkImgAnswer()">정답 제출 (Enter)</button>
+      </div>
+
+      <div id="imgFeedbackBox" style="margin-top:12px; display:none; padding:12px; border-radius:12px; font-weight:700;"></div>
+
+      <button class="btn btn-outline btn-block" style="margin-top:10px;" onclick="nextImageGameQuestion()">다음 문제 (→) ▶</button>
+    </div>
+  </section>
+
+  <!-- 8. 학습 현황 및 즐겨찾기 단어장 화면 -->
+  <section class="screen" id="screen-stats">
+    <div class="card-box">
+      <h3 style="margin:0 0 12px 0; font-size:1.02rem;">📈 나의 학습 진도 현황</h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; text-align:center;">
+        <div style="background:#ecfdf5; padding:10px 6px; border-radius:12px;">
+          <div style="font-size:1.25rem; font-weight:900; color:#047857;" id="statMasterCount">0</div>
+          <div style="font-size:0.72rem; font-weight:700; color:#047857;">✅ 암기완료</div>
+        </div>
+        <div style="background:#fef9c3; padding:10px 6px; border-radius:12px;">
+          <div style="font-size:1.25rem; font-weight:900; color:#854d0e;" id="statFavCount">0</div>
+          <div style="font-size:0.72rem; font-weight:700; color:#854d0e;">⭐ 즐겨찾기</div>
+        </div>
+        <div style="background:#fffbeb; padding:10px 6px; border-radius:12px;">
+          <div style="font-size:1.25rem; font-weight:900; color:#b45309;" id="statHardCount">0</div>
+          <div style="font-size:0.72rem; font-weight:700; color:#b45309;">🔥 어려움</div>
+        </div>
+        <div style="background:#f3f4f6; padding:10px 6px; border-radius:12px;">
+          <div style="font-size:1.25rem; font-weight:900; color:#4b5563;" id="statUnlearnedCount">60</div>
+          <div style="font-size:0.72rem; font-weight:700; color:#4b5563;">⚪ 미학습</div>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:0.85rem; color:var(--text-sub); line-height:1.6;" id="statQuizSummary"></div>
+    </div>
+
+    <div class="card-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h3 style="margin:0; font-size:0.98rem;">⭐ 내가 즐겨찾기한 형용사 목록</h3>
+        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.76rem;" onclick="goToFavFlashcard()">카드로 복습 ▶</button>
+      </div>
+      <div id="statFavList" style="font-size:0.88rem;"></div>
+    </div>
+
+    <div class="card-box">
+      <h3 style="margin:0 0 8px 0; font-size:0.98rem;">🚨 자주 틀리는 / 어려운 형용사</h3>
+      <div id="statWeakList" style="font-size:0.88rem;"></div>
+    </div>
+
+    <div class="card-box">
+      <h3 style="margin:0 0 8px 0; font-size:0.98rem;">⚙️ 학습 기록 초기화</h3>
+      <button class="btn btn-danger btn-block" onclick="resetAllUserData()">🗑️ 모든 학습 기록 및 즐겨찾기 초기화</button>
+    </div>
+  </section>
+
+  <!-- 상세 학습 모달 (히라가나 최우선 + 아래 한자) -->
+  <div class="modal-overlay" id="detailModal" onclick="closeDetailModal(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="type-tag" id="modalTypeTag">い형용사</span>
+        <div style="display:flex; gap:6px; align-items:center;">
+          <button class="btn btn-fav" id="modalFavBtn" style="padding:5px 10px; font-size:0.8rem;" onclick="toggleFavFromModal()">☆ 즐겨찾기</button>
+          <button class="btn btn-outline" style="padding:5px 10px;" onclick="closeDetailModal()">✕ 닫기 (Esc)</button>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+        <div>
+          <!-- 히라가나가 크게 상단에 -->
+          <div class="jp" lang="ja" id="modalKanaMain" style="font-size:2.2rem; font-weight:900; color:var(--primary);">おおきい</div>
+          <!-- 한자는 아래에 보조로 -->
+          <div class="jp" lang="ja" id="modalKanjiSub" style="font-size:1rem; font-weight:700; color:var(--text-sub);">한자 표기: 大きい [ookii]</div>
+        </div>
+        <button class="btn btn-primary" onclick="speakWordById(currentModalId)">🔊 발음 (S)</button>
+      </div>
+
+      <div style="font-size:1.25rem; font-weight:900; margin-bottom:14px;" id="modalMeaning">🐘 크다</div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:0.78rem; font-weight:700; color:var(--text-sub); margin-bottom:6px;">학습 상태 변경</div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
+          <button class="btn btn-outline" id="modalBtnUnlearned" onclick="setWordStatusFromModal('unlearned')">⚪ 미학습</button>
+          <button class="btn btn-outline" id="modalBtnHard" onclick="setWordStatusFromModal('hard')">🔥 어려움</button>
+          <button class="btn btn-outline" id="modalBtnMastered" onclick="setWordStatusFromModal('mastered')">✅ 암기완료</button>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px;">
+        <button class="btn btn-outline" onclick="goFromModalTo('stroke')">✍️ 히라가나 따라 쓰기</button>
+        <button class="btn btn-outline" onclick="goFromModalTo('mnemonic')">💡 연상 암기 & 예문</button>
+      </div>
+
+      <div style="background:#eef2ff; padding:12px; border-radius:12px; margin-bottom:12px; font-size:0.86rem;" id="modalMnemonicBox"></div>
+      <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); margin-bottom:12px; font-size:0.86rem;" id="modalExampleBox"></div>
+
+      <div style="font-size:0.84rem; font-weight:800; color:var(--text-sub);">📌 히라가나 중심 어미 활용표</div>
+      <table class="conj-table jp" lang="ja" id="modalConjTable"></table>
+    </div>
+  </div>
+
+  <!-- 키보드 단축키 안내 모달 -->
+  <div class="modal-overlay" id="shortcutModal" onclick="closeShortcutModal(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="margin:0; font-size:1.1rem;">⌨️ 키보드 단축키 안내</h3>
+        <button class="btn btn-outline" style="padding:5px 10px;" onclick="closeShortcutModal()">✕ 닫기 (Esc)</button>
+      </div>
+      <p style="font-size:0.84rem; color:var(--text-sub); margin-top:0;">PC나 태블릿 키보드 연결 시 단축키로 더욱 빠르게 학습할 수 있습니다.</p>
+      <table class="conj-table">
+        <tr><th><strong>Space (스페이스바)</strong></th><td>플래시카드 앞/뒷면 뒤집기, 쓰기 애니메이션 일시정지/재생</td></tr>
+        <tr><th><strong>← / → (방향키)</strong></th><td>이전 / 다음 카드 및 단어로 이동</td></tr>
+        <tr><th><strong>S 키</strong></th><td>현재 단어 일본어 원어민 발음 듣기 (TTS)</td></tr>
+        <tr><th><strong>F 키</strong></th><td>현재 단어 ⭐ 즐겨찾기 등록 / 해제 토글</td></tr>
+        <tr><th><strong>1 키</strong></th><td>플래시카드 '🔥 아직 어려움' 표시 / 객관식 퀴즈 1번 선택</td></tr>
+        <tr><th><strong>2 키 또는 M 키</strong></th><td>플래시카드 '✅ 알고 있음(암기 완료)' 표시 / 퀴즈 2번 선택</td></tr>
+        <tr><th><strong>3 / 4 키</strong></th><td>객관식 퀴즈 3번 / 4번 보기 즉시 선택</td></tr>
+        <tr><th><strong>R 키</strong></th><td>플래시카드 순서 무작위 섞기 (셔플)</td></tr>
+        <tr><th><strong>C 키</strong></th><td>쓰기 연습장에서 내가 그린 글씨 지우기</td></tr>
+        <tr><th><strong>Esc 키</strong></th><td>열려 있는 상세 창 또는 안내 모달 닫기</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 하단 고정 네비게이션 -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-target="home" onclick="navigate('home')">
+      <span class="icon">🏠</span><span>홈</span>
+    </button>
+    <button class="nav-item" data-target="table" onclick="navigate('table')">
+      <span class="icon">📋</span><span>히라가나표</span>
+    </button>
+    <button class="nav-item" data-target="flashcard" onclick="navigate('flashcard')">
+      <span class="icon">🃏</span><span>플래시카드</span>
+    </button>
+    <button class="nav-item" data-target="stroke" onclick="navigate('stroke')">
+      <span class="icon">✍️</span><span>쓰기연습</span>
+    </button>
+    <button class="nav-item" data-target="stats" onclick="navigate('stats')">
+      <span class="icon">⭐</span><span>즐겨찾기·진도</span>
+    </button>
+  </nav>
+</div>
+
+<script>
+  // =========================================================================
+  // 1. 필수 형용사 60선 데이터 (초보자용 히라가나 최우선 + 아래 한자 병기)
+  // =========================================================================
+  const ADJECTIVES = [
+    // --- い형용사 (1 ~ 30) ---
+    { id: 1, type: 'i', kana: 'おおきい', kanji: '大きい', romaji: 'ookii', meaning: '크다', emoji: '🐘', mnemonic: '"오~ 키(おおきい)가 아주 크다!" 팔다리를 크게 벌린 코끼리를 떠올려 보세요.', wordJp: 'おおきい いえ (大きい 家)', wordKr: '큰 집', exJp: 'この かばんは おおきいですね。', exKr: '이 가방은 크네요.' },
+    { id: 2, type: 'i', kana: 'ちいさい', kanji: '小さい', romaji: 'chiisai', meaning: '작다', emoji: '🐭', mnemonic: '작은 아기 쥐가 "치이~ 사이(ちいさい)가 좁고 작다"고 속삭이는 모습!', wordJp: 'ちいさい いぬ (小さい 犬)', wordKr: '작은 강아지', exJp: 'ちいさい こえで はなして ください。', exKr: '작은 목소리로 이야기해 주세요.' },
+    { id: 3, type: 'i', kana: 'たかい', kanji: '高い', romaji: 'takai', meaning: '높다, 비싸다', emoji: '🗼', mnemonic: '높은 타워 전망대는 입장료도 비싸서 "타카이(たかい)!"', wordJp: 'たかい やま (高い 山)', wordKr: '높은 산', exJp: 'この とけいは とても たかいです。', exKr: '이 시계는 매우 비쌉니다.' },
+    { id: 4, type: 'i', kana: 'ひくい', kanji: '低い', romaji: 'hikui', meaning: '낮다', emoji: '🔉', mnemonic: '낮은 천장에 머리가 닿을락 말락 해 "히쿠(ひくい)!" 하고 고개를 숙이는 모습.', wordJp: 'ひくい こえ (低い 声)', wordKr: '낮은 목소리', exJp: 'きょうは きおんが ひくいです。', exKr: '오늘은 기온이 낮습니다.' },
+    { id: 5, type: 'i', kana: 'やすい', kanji: '安い', romaji: 'yasui', meaning: '싸다', emoji: '🏷️', mnemonic: '할인 마트에서 가격이 너무 싸서 "야호~ 스마일(やすい)!"', wordJp: 'やすい みせ (安い 店)', wordKr: '값싼 가게', exJp: 'この りんごは やすくて おいしいです。', exKr: '이 사과는 싸고 맛있습니다.' },
+    { id: 6, type: 'i', kana: 'あたらしい', kanji: '新しい', romaji: 'atarashii', meaning: '새롭다', emoji: '✨', mnemonic: '반짝거리는 새 신발을 보고 "아~ 탐나네, 새것이라(あたらしい)!"', wordJp: 'あたらしい くるま (新しい 車)', wordKr: '새 자동차', exJp: 'あたらしい くつを かいました。', exKr: '새 신발을 샀습니다.' },
+    { id: 7, type: 'i', kana: 'ふるい', kanji: '古い', romaji: 'furui', meaning: '오래되다, 낡다', emoji: '🏚️', mnemonic: '오래된 책 위의 먼지를 입으로 "후루룩(ふるい)" 불어 털어내는 모습!', wordJp: 'ふるい おてら (古い お寺)', wordKr: '오래된 절', exJp: 'これは ふるい えいがです。', exKr: '이것은 오래된 영화입니다.' },
+    { id: 8, type: 'i', kana: 'よい', kanji: '良い', altAnswers: ['いい', 'よい', '良い'], romaji: 'yoi / ii', meaning: '좋다', emoji: '👍', mnemonic: '엄지척! "요이(よい)~ 이이(いい) 기분 좋다!" (과거·부정 활용은 항상 よい 기준)', wordJp: 'いい てんき (良い 天気)', wordKr: '좋은 날씨', exJp: 'きょうは てんきが いいですね。', exKr: '오늘은 날씨가 좋네요.' },
+    { id: 9, type: 'i', kana: 'わるい', kanji: '悪い', romaji: 'warui', meaning: '나쁘다', emoji: '😈', mnemonic: '"와~ 루이(わるい)비통 짝퉁이라 품질이 나쁘다!"', wordJp: 'きぶんが わるい (気分が 悪い)', wordKr: '기분이 나쁘다', exJp: 'からだの ちょうしが わるいです。', exKr: '몸 상태가 나쁩니다.' },
+    { id: 10, type: 'i', kana: 'あつい', kanji: '暑い', romaji: 'atsui', meaning: '덥다 (날씨)', emoji: '☀️', mnemonic: '여름 햇볕이 쨍쨍 내리쬐어 "아! 츠(あつい)~ 땀나고 덥다!"', wordJp: 'あつい なつ (暑い 夏)', wordKr: '더운 여름', exJp: 'ことしの なつは とても あついです。', exKr: '올해 여름은 매우 덥습니다.' },
+    { id: 11, type: 'i', kana: 'さむい', kanji: '寒い', romaji: 'samui', meaning: '춥다 (날씨)', emoji: '🥶', mnemonic: '찬 바람에 사시나무 떨듯 "사~ 무이(さむい) 춥다!"', wordJp: 'さむい ふゆ (寒い 冬)', wordKr: '추운 겨울', exJp: 'そとは さむいから コートを きてね。', exKr: '밖은 추우니까 코트를 입으렴.' },
+    { id: 12, type: 'i', kana: 'あつい', kanji: '熱い', romaji: 'atsui', meaning: '뜨겁다 (촉각)', emoji: '☕', mnemonic: '갓 끓인 커피 잔을 만지고 "아! 뜨거워(あつい)!"', wordJp: 'あつい コーヒー (熱い コーヒー)', wordKr: '뜨거운 커피', exJp: 'あつい おちゃを のみました。', exKr: '뜨거운 차를 마셨습니다.' },
+    { id: 13, type: 'i', kana: 'つめたい', kanji: '冷たい', romaji: 'tsumetai', meaning: '차갑다 (촉각)', emoji: '🧊', mnemonic: '얼음을 손톱(つめ, 츠메) 끝으로 만지니 "츠메타이(つめたい) 차갑다!"', wordJp: 'つめたい みず (冷たい 水)', wordKr: '차가운 물', exJp: 'つめたい ジュースが のみたいです。', exKr: '차가운 주스를 마시고 싶습니다.' },
+    { id: 14, type: 'i', kana: 'あたたかい', kanji: '暖かい', altAnswers: ['あたたかい', '暖かい', '温かい'], romaji: 'atataka', meaning: '따뜻하다', emoji: '🧣', mnemonic: '따스한 봄 햇살 아래에서 "아~ 다 따뜻해(あたたかい)!"', wordJp: 'あたたかい はる (暖かい 春)', wordKr: '따뜻한 봄', exJp: 'あたたかい スープを つくりました。', exKr: '따뜻한 수프를 만들었습니다.' },
+    { id: 15, type: 'i', kana: 'すずしい', kanji: '涼しい', romaji: 'suzushii', meaning: '시원하다, 선선하다', emoji: '🍃', mnemonic: '가을바람에 풍경 방울(すず)이 "스즈시이(すずしい)~" 시원하게 울리는 소리!', wordJp: 'すずしい かぜ (涼しい 風)', wordKr: '시원한 바람', exJp: 'あきに なって すずしく なりました。', exKr: '가을이 되어 선선해졌습니다.' },
+    { id: 16, type: 'i', kana: 'たのしい', kanji: '楽しい', romaji: 'tanoshii', meaning: '즐겁다', emoji: '🎶', mnemonic: '"다 같이 노래 부르니 타노시이(たのしい) 즐겁다!"', wordJp: 'たのしい りょこう (楽しい 旅行)', wordKr: '즐거운 여행', exJp: 'にほんごの べんきょうは たのしいです。', exKr: '일본어 공부는 즐겁습니다.' },
+    { id: 17, type: 'i', kana: 'おもしろい', kanji: '面白い', romaji: 'omoshiroi', meaning: '재미있다', emoji: '🤣', mnemonic: '"어머! 시로이(おもしろい) 강아지 개인기가 진짜 재미있다!"', wordJp: 'おもしろい ほん (面白い 本)', wordKr: '재미있는 책', exJp: 'この まんがは とても おもしろいです。', exKr: '이 만화는 정말 재미있습니다.' },
+    { id: 18, type: 'i', kana: 'いそがしい', kanji: '忙しい', romaji: 'isogashii', meaning: '바쁘다', emoji: '🏃', mnemonic: '"이소(いそ)룡처럼 이리저리 바쁘게 가시이(いそがしい)!"', wordJp: 'いそがしい まいにち (忙しい 毎日)', wordKr: '바쁜 매일', exJp: 'こんしゅうは しごとが いそがしいです。', exKr: '이번 주는 일이 바쁩니다.' },
+    { id: 19, type: 'i', kana: 'おいしい', kanji: '美味しい', romaji: 'oishii', meaning: '맛있다', emoji: '🍣', mnemonic: '맛있는 초밥을 한 입 먹고 "오이시이(おいしい)~ 맛있다!"', wordJp: 'おいしい りょうり (美味しい 料理)', wordKr: '맛있는 요리', exJp: 'この ケーキは ほんとうに おいしいです。', exKr: '이 케이크는 정말로 맛있습니다.' },
+    { id: 20, type: 'i', kana: 'まずい', kanji: 'まずい', romaji: 'mazui', meaning: '맛없다', emoji: '🤢', mnemonic: '소금 폭탄 주스를 마시고 "마즈이(まずい)! 맛없어서 못 마시겠다!"', wordJp: 'まずい くすり (まずい 薬)', wordKr: '맛없는 약', exJp: 'この りょうりは ちょっと まずいです。', exKr: '이 요리는 좀 맛없습니다.' },
+    { id: 21, type: 'i', kana: 'ひろい', kanji: '広い', romaji: 'hiroi', meaning: '넓다', emoji: '🏟️', mnemonic: '넓은 잔디밭에서 "히어로(ひろい)가 마음껏 뛰어다닐 만큼 넓다!"', wordJp: 'ひろい へや (広い 部屋)', wordKr: '넓은 방', exJp: 'この こうえんは とても ひろいです。', exKr: '이 공원은 매우 넓습니다.' },
+    { id: 22, type: 'i', kana: 'せまい', kanji: '狭い', romaji: 'semai', meaning: '좁다', emoji: '📦', mnemonic: '작은 상자 안이 "새(せ) 한 마리만(まい) 들어갈 만큼 좁다(せまい)!"', wordJp: 'せまい みち (狭い 道)', wordKr: '좁은 길', exJp: 'わたしの へやは すこし せまいです。', exKr: '제 방은 조금 좁습니다.' },
+    { id: 23, type: 'i', kana: 'はやい', kanji: '早い', altAnswers: ['はやい', '早い', '速い'], romaji: 'hayai', meaning: '이르다, 빠르다', emoji: '⚡', mnemonic: '"하야(はやい)게 동이 트는 이른 아침, 발걸음도 빠르다!"', wordJp: 'はやい じかん (早い 時間)', wordKr: '이른 시간', exJp: 'あしたは はやく おきます。', exKr: '내일은 일찍 일어납니다.' },
+    { id: 24, type: 'i', kana: 'おそい', kanji: '遅い', romaji: 'osoi', meaning: '늦다, 느리다', emoji: '🐢', mnemonic: '"오~ 소(おそい)처럼 걸음이 느리고 약속 시간도 늦다!"', wordJp: 'あゆみが おそい (歩みが 遅い)', wordKr: '걸음이 느리다', exJp: 'バスが おそくて ちこくしました。', exKr: '버스가 늦어서 지각했습니다.' },
+    { id: 25, type: 'i', kana: 'ちかい', kanji: '近い', romaji: 'chikai', meaning: '가깝다', emoji: '📍', mnemonic: '"지하철역이 코앞이라 치카이(ちかい) 가깝다!"', wordJp: 'ちかい えき (近い 駅)', wordKr: '가까운 역', exJp: 'いえから がっこうまで ちかいです。', exKr: '집에서 학교까지 가깝습니다.' },
+    { id: 26, type: 'i', kana: 'とおい', kanji: '遠い', romaji: 'tooi', meaning: '멀다', emoji: '🔭', mnemonic: '산 너머 멀리서 "토오이(とおい)~" 하고 울리는 메아리 소리!', wordJp: 'とおい ばしょ (遠い 場所)', wordKr: '먼 장소', exJp: 'くうこうは ここから とおいです。', exKr: '공항은 여기서 멉니다.' },
+    { id: 27, type: 'i', kana: 'おもい', kanji: '重い', romaji: 'omoi', meaning: '무겁다', emoji: '🏋️', mnemonic: '무거운 택배 상자를 들며 "어모! 무거워(おもい)!"', wordJp: 'おもい にもつ (重い 荷物)', wordKr: '무거운 짐', exJp: 'この はこは とても おもいです。', exKr: '이 상자는 매우 무겁습니다.' },
+    { id: 28, type: 'i', kana: 'かるい', kanji: '軽い', romaji: 'karui', meaning: '가볍다', emoji: '🪶', mnemonic: '밀가루처럼 "가루(かるい)처럼 깃털이 가볍다!"', wordJp: 'かるい かばん (軽い かばん)', wordKr: '가벼운 가방', exJp: 'この ノートパソコンは かるいです。', exKr: '이 노트북은 가볍습니다.' },
+    { id: 29, type: 'i', kana: 'むずかしい', kanji: '難しい', romaji: 'muzukashii', meaning: '어렵다', emoji: '🧩', mnemonic: '퍼즐 문제가 너무 어려워서 "무지 까시(むずかしい) 돋네!"', wordJp: 'むずかしい もんだい (難しい 問題)', wordKr: '어려운 문제', exJp: 'かんじの テストは むずかしいです。', exKr: '한자 시험은 어렵습니다.' },
+    { id: 30, type: 'i', kana: 'やさしい', kanji: '優しい', altAnswers: ['やさしい', '優しい', '易しい'], romaji: 'yasashii', meaning: '상냥하다, 쉽다', emoji: '🥰', mnemonic: '"야~ 사시(やさしい)사철 미소 짓는 선생님은 상냥하고 설명도 쉽다!"', wordJp: 'やさしい ひと (優しい 人)', wordKr: '상냥한 사람', exJp: 'せんせいは とても やさしいです。', exKr: '선생님은 매우 상냥하십니다.' },
+
+    // --- な형용사 (31 ~ 60) ---
+    { id: 31, type: 'na', kana: 'すきだ', kanji: '好きだ', romaji: 'sukida', meaning: '좋아하다', emoji: '❤️', mnemonic: '겨울에 "스키(すき) 타는 걸 좋아하다(すきだ)!"', wordJp: 'すきな おんがく (好きな 音楽)', wordKr: '좋아하는 음악', exJp: 'わたしは ねこが だいすきです。', exKr: '저는 고양이를 매우 좋아합니다.' },
+    { id: 32, type: 'na', kana: 'きらいだ', kanji: '嫌いだ', romaji: 'kiraida', meaning: '싫어하다', emoji: '🙅', mnemonic: '"키 작은 라이(きらい)벌이 괴롭히는 건 싫어하다!"', wordJp: 'きらいな たべもの (嫌いな 食べ物)', wordKr: '싫어하는 음식', exJp: 'むしが きらいです。', exKr: '벌레를 싫어합니다.' },
+    { id: 33, type: 'na', kana: 'じょうずだ', kanji: '上手だ', romaji: 'jouzuda', meaning: '능숙하다, 잘하다', emoji: '🏆', mnemonic: '영화 "죠즈(じょうず) 상어처럼 수영을 능숙하게 잘하다!"', wordJp: 'うたが じょうずだ (歌が 上手だ)', wordKr: '노래를 잘하다', exJp: 'たなかさんは にほんごが じょうずです。', exKr: '다나카 씨는 일본어를 잘합니다.' },
+    { id: 34, type: 'na', kana: 'へただ', kanji: '下手だ', romaji: 'hetada', meaning: '서툴다, 못하다', emoji: '💦', mnemonic: '요리를 태우고 머리를 긁적이며 "헤~ 다(へただ) 태웠네, 아직 서툴다!"', wordJp: 'りょうりが へただ (料理が 下手だ)', wordKr: '요리가 서툴다', exJp: 'わたしは えが へたです。', exKr: '저는 그림을 못 그립니다.' },
+    { id: 35, type: 'na', kana: 'とくいだ', kanji: '得意だ', romaji: 'tokuida', meaning: '자신 있다, 특기이다', emoji: '😎', mnemonic: '"톡(とく) 까놓고 말해서 이 요리가 내 특기(とくいだ)야!"', wordJp: 'とくいな りょうり (得意な 料理)', wordKr: '자신 있는 요리', exJp: 'かれは テニスが とくいです。', exKr: '그는 테니스에 자신이 있습니다.' },
+    { id: 36, type: 'na', kana: 'にがてだ', kanji: '苦手だ', romaji: 'nigateda', meaning: '서투르다, 대하기 거북하다', emoji: '😖', mnemonic: '"니가 테(にがて)스트 해봐, 난 이 과목은 서툴고 약해!"', wordJp: 'にがてな かもく (苦手な 科目)', wordKr: '취약한 과목', exJp: 'あさ はやく おきるのが にがてです。', exKr: '아침 일찍 일어나는 것에 약합니다.' },
+    { id: 37, type: 'na', kana: 'しずかだ', kanji: '静かだ', romaji: 'shizukada', meaning: '조용하다', emoji: '🤫', mnemonic: '도서관에서 손가락을 입에 대고 "쉬~ 지금(しずか)은 조용히!"', wordJp: 'しずかな としょかん (静かな 図書館)', wordKr: '조용한 도서관', exJp: 'ここは とても しずかな まちです。', exKr: '여기는 매우 조용한 동네입니다.' },
+    { id: 38, type: 'na', kana: 'にぎやかだ', kanji: '賑やかだ', romaji: 'nigiyakada', meaning: '번화하다, 북적거리다', emoji: '🎉', mnemonic: '"니기(にぎ)리 초밥 축제로 거리가 북적거리다(にぎやかだ)!"', wordJp: 'にぎやかな とおり (賑やかな 通り)', wordKr: '번화한 거리', exJp: 'しゅうまつの えきは にぎやかです。', exKr: '주말 역은 북적거립니다.' },
+    { id: 39, type: 'na', kana: 'ひまだ', kanji: '暇だ', romaji: 'himada', meaning: '한가하다', emoji: '🥱', mnemonic: '할 일이 없어서 "히마(ひま)리 없이 하품하며 한가하다!"', wordJp: 'ひまな じかん (暇な 時間)', wordKr: '한가한 시간', exJp: 'きょうの ごごは ひまですか。', exKr: '오늘 오후는 한가합니까?' },
+    { id: 40, type: 'na', kana: 'しんせつだ', kanji: '親切だ', romaji: 'shinsetsuda', meaning: '친절하다', emoji: '🤝', mnemonic: '한국어 "친절"과 발음이 비슷! "신세(しんせつ)를 졌는데도 친절하다!"', wordJp: 'しんせつな てんいん (親切な 店員)', wordKr: '친절한 점원', exJp: 'あの ひとは だれにでも しんせつです。', exKr: '저 사람은 누구에게나 친절합니다.' },
+    { id: 41, type: 'na', kana: 'べんりだ', kanji: '便利だ', romaji: 'benrida', meaning: '편리하다', emoji: '📱', mnemonic: '한국어 "편리(便利)" → 일본어 발음 "벤리다(べんりだ)"!', wordJp: 'べんりな アプリ (便利な アプリ)', wordKr: '편리한 앱', exJp: 'ちかてつは はやくて べんりです。', exKr: '지하철은 빠르고 편리합니다.' },
+    { id: 42, type: 'na', kana: 'ふべんだ', kanji: '不便だ', romaji: 'fubenda', meaning: '불편하다', emoji: '🚧', mnemonic: '편리(べんり) 앞에 부정(ふ)이 붙어 "후벤다(ふべんだ) 불편하다!"', wordJp: 'ふべんな ばしょ (不便な 場所)', wordKr: '불편한 장소', exJp: 'くるまが ないと すこし ふべんです。', exKr: '차가 없으면 조금 불편합니다.' },
+    { id: 43, type: 'na', kana: 'ゆうめいだ', kanji: '有名だ', romaji: 'yuumeida', meaning: '유명하다', emoji: '🌟', mnemonic: '한국어 "유명(有名)"과 발음도 거의 똑같은 "유우메이다(ゆうめいだ)"!', wordJp: 'ゆうめいな かしゅ (有名な 歌手)', wordKr: '유명한 가수', exJp: 'きょうとは ふるい おてらで ゆうめいです。', exKr: '교토는 오래된 절로 유명합니다.' },
+    { id: 44, type: 'na', kana: 'げんきだ', kanji: '元気だ', romaji: 'genkida', meaning: '건강하다, 활기차다', emoji: '💪', mnemonic: '"오겡키(げんき) 데스카?" 원기 왕성하고 활기차다!', wordJp: 'げんきな こども (元気な 子供)', wordKr: '활기찬 아이', exJp: 'おじいさんは いつも げんきです。', exKr: '할아버지는 언제나 건강하십니다.' },
+    { id: 45, type: 'na', kana: 'かんたんだ', kanji: '簡単だ', romaji: 'kantanda', meaning: '간단하다', emoji: '👌', mnemonic: '한국어 "간단"과 발음이 거의 같은 "칸탄다(かんたんだ)"!', wordJp: 'かんたんな りょうり (簡単な 料理)', wordKr: '간단한 요리', exJp: 'この ゲームの ルールは かんたんです。', exKr: '이 게임의 규칙은 간단합니다.' },
+    { id: 46, type: 'na', kana: 'ふくざつだ', kanji: '複雑だ', romaji: 'fukuzatsuda', meaning: '복잡하다', emoji: '🕸️', mnemonic: '한국어 "복잡" → 일본어 발음 "후쿠자츠다(ふくざつだ)"!', wordJp: 'ふくざつな きもち (複雑な 気持ち)', wordKr: '복잡한 기분', exJp: 'とうきょうの ろせんずは ふくざつです。', exKr: '도쿄의 노선도는 복잡합니다.' },
+    { id: 47, type: 'na', kana: 'きれいだ', kanji: 'きれいだ', altAnswers: ['きれいだ', 'きれい', '綺麗だ'], romaji: 'kireida', meaning: '예쁘다, 깨끗하다', emoji: '🌸', mnemonic: '"키레이(きれいだ)"한 벚꽃이 예쁘고 방도 깨끗하다! (대표 な형용사)', wordJp: 'きれいな はな (きれいな 花)', wordKr: '예쁜 꽃', exJp: 'へやを きれいに そうじしました。', exKr: '방을 깨끗하게 청소했습니다.' },
+    { id: 48, type: 'na', kana: 'ていねいだ', kanji: '丁寧だ', romaji: 'teineida', meaning: '정중하다, 공손하다', emoji: '🙇', mnemonic: '"테이네이(ていねいだ)~" 두 손 모아 정중하고 공손하게 인사하는 모습!', wordJp: 'ていねいな せつめい (丁寧な 説明)', wordKr: '정중한 설명', exJp: 'ていねいな ことばで はなします。', exKr: '정중한 말씨로 이야기합니다.' },
+    { id: 49, type: 'na', kana: 'たいせつだ', kanji: '大切だ', romaji: 'taisetsuda', meaning: '소중하다, 중요하다', emoji: '💎', mnemonic: '"타이세츠(たいせつ)한 보물처럼 가족과 시간을 소중히 여기다!"', wordJp: 'たいせつな やくそく (大切な 約束)', wordKr: '소중한 약속', exJp: 'けんこうが いちばん たいせつです。', exKr: '건강이 가장 중요합니다.' },
+    { id: 50, type: 'na', kana: 'たいへんだ', kanji: '大変だ', romaji: 'taihenda', meaning: '힘들다, 큰일이다', emoji: '😰', mnemonic: '"타이헨(たいへん)다! 큰일 났네, 오늘 업무가 너무 힘들다!"', wordJp: 'たいへんな しごと (大変な 仕事)', wordKr: '힘든 일', exJp: 'きょうは あめが つよくて たいへんでした。', exKr: '오늘은 비가 세차서 힘들었습니다.' },
+    { id: 51, type: 'na', kana: 'あんぜんだ', kanji: '安全だ', romaji: 'anzenda', meaning: '안전하다', emoji: '🛡️', mnemonic: '한국어 "안전(安全)"과 발음이 똑같은 "안젠다(あんぜんだ)"!', wordJp: 'あんぜんな ばしょ (安全な 場所)', wordKr: '안전한 장소', exJp: 'この みずは のんでも あんぜんです。', exKr: '이 물은 마셔도 안전합니다.' },
+    { id: 52, type: 'na', kana: 'きけんだ', kanji: '危険だ', romaji: 'kikenda', meaning: '위험하다', emoji: '⚠️', mnemonic: '공사장 표지판에 적힌 "키켄(きけんだ)! 위험하다!"', wordJp: 'きけんな うんてん (危険な 運転)', wordKr: '위험한 운전', exJp: 'よる ひとりで あるくのは きけんです。', exKr: '밤에 혼자 걷는 것은 위험합니다.' },
+    { id: 53, type: 'na', kana: 'じゆうだ', kanji: '自由だ', romaji: 'jiyuuda', meaning: '자유롭다', emoji: '🕊️', mnemonic: '한국어 "자유(自由)" → 일본어 발음 "지유우다(じゆうだ)"!', wordJp: 'じゆうな じかん (自由な 時間)', wordKr: '자유로운 시간', exJp: 'あしたは よていが なくて じゆうです。', exKr: '내일은 일정이 없어서 자유롭습니다.' },
+    { id: 54, type: 'na', kana: 'ひつようだ', kanji: '必要だ', romaji: 'hitsuyouda', meaning: '필요하다', emoji: '🔑', mnemonic: '한국어 "필요(必要)" → 일본어 발음 "히츠요우다(ひつようだ)"!', wordJp: 'ひつような しょるい (必要な 書類)', wordKr: '필요한 서류', exJp: 'りょこうには パスポートが ひつようです。', exKr: '여행에는 여권이 필요합니다.' },
+    { id: 55, type: 'na', kana: 'ふしぎだ', kanji: '不思議だ', romaji: 'fushigida', meaning: '신기하다, 이상하다', emoji: '🪄', mnemonic: '마술쇼를 보며 "후시기(ふしぎ)하네~ 참 신기하다!"', wordJp: 'ふしぎな はなし (不思議な 話)', wordKr: '신기한 이야기', exJp: 'ふしぎな おとが きこえました。', exKr: '신기한 소리가 들렸습니다.' },
+    { id: 56, type: 'na', kana: 'ざんねんだ', kanji: '残念だ', romaji: 'zannenda', meaning: '아쉽다, 유감이다', emoji: '😢', mnemonic: '아깝게 게임에서 졌을 때 "잔넨(ざんねんだ)~ 아쉽다!"', wordJp: 'ざんねんな けっか (残念な 結果)', wordKr: '아쉬운 결과', exJp: 'しあいに まけて ざんねんです。', exKr: '시합에 져서 아쉽습니다.' },
+    { id: 57, type: 'na', kana: 'しんぱいだ', kanji: '心配だ', romaji: 'shinpaida', meaning: '걱정스럽다', emoji: '😟', mnemonic: '"심장이 파이(しんぱい)도록 내일 시험이 걱정스럽다!"', wordJp: 'しんぱいな ニュース (心配な ニュース)', wordKr: '걱정스러운 뉴스', exJp: 'あしたの しけんが しんぱいです。', exKr: '내일 시험이 걱정됩니다.' },
+    { id: 58, type: 'na', kana: 'らくだ', kanji: '楽だ', romaji: 'rakuda', meaning: '편하다, 안락하다', emoji: '🛋️', mnemonic: '사막을 걸어가는 대신 "낙타(らくだ)를 타니 몸이 아주 편하다!"', wordJp: 'らくな ふく (楽な 服)', wordKr: '편한 옷', exJp: 'スニーカーは あるくのが らくです。', exKr: '운동화는 걷기가 편합니다.' },
+    { id: 59, type: 'na', kana: 'まじめだ', kanji: '真面目だ', romaji: 'majimeda', meaning: '성실하다, 진지하다', emoji: '🤓', mnemonic: '"마지메(まじめ)한 학생은 지각도 안 하고 늘 성실하다!"', wordJp: 'まじめな がくせい (真面目な 学生)', wordKr: '성실한 학생', exJp: 'かれは いつも まじめに はたらきます。', exKr: '그는 언제나 성실하게 일합니다.' },
+    { id: 60, type: 'na', kana: 'ゆたかだ', kanji: '豊かだ', romaji: 'yutakada', meaning: '풍부하다, 넉넉하다', emoji: '🌾', mnemonic: '"유타카(ゆたか)한 대자연과 풍부한 수확!"', wordJp: 'ゆたかな しぜん (豊かな 自然)', wordKr: '풍요로운 자연', exJp: 'あの ひとは けいけんが ゆたかです。', exKr: '저 사람은 경험이 풍부합니다.' }
+  ];
+
+  // =========================================================================
+  // 2. 로컬 스토리지 상태 관리 (학습 상태 + ⭐즐겨찾기 fav 포함)
+  // =========================================================================
+  const STORAGE_KEY = 'jp_adj_hiragana_master_v2';
+  let userState = {
+    words: {}, // { [id]: { status: 'unlearned'|'hard'|'mastered', fav: false, correct: 0, wrong: 0 } }
+    quizTotal: 0,
+    quizCorrect: 0,
+    bestTimeAttack: 0
+  };
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        userState = { ...userState, ...parsed };
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    ADJECTIVES.forEach(item => {
+      if (!userState.words[item.id]) {
+        userState.words[item.id] = { status: 'unlearned', fav: false, correct: 0, wrong: 0 };
+      } else if (typeof userState.words[item.id].fav === 'undefined') {
+        userState.words[item.id].fav = false;
+      }
+    });
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+    } catch (e) {
+      console.error(e);
+    }
+    updateGlobalHeader();
+  }
+
+  function getWordRecord(id) {
+    if (!userState.words[id]) {
+      userState.words[id] = { status: 'unlearned', fav: false, correct: 0, wrong: 0 };
+    }
+    return userState.words[id];
+  }
+
+  function toggleFavById(id, callback) {
+    const rec = getWordRecord(id);
+    rec.fav = !rec.fav;
+    saveState();
+    if (callback) callback();
+  }
+
+  function updateGlobalHeader() {
+    let mastered = 0, hard = 0, fav = 0;
+    ADJECTIVES.forEach(a => {
+      const rec = getWordRecord(a.id);
+      if (rec.status === 'mastered') mastered++;
+      else if (rec.status === 'hard') hard++;
+      if (rec.fav) fav++;
+    });
+    const pct = Math.round((mastered / ADJECTIVES.length) * 100);
+    document.getElementById('headerBadge').textContent = `진도 ${pct}% (${mastered}/60)`;
+    const bar = document.getElementById('homeProgressBar');
+    if (bar) bar.style.width = `${pct}%`;
+    const hm = document.getElementById('homeStatMastered');
+    if (hm) hm.textContent = `✅ 암기: ${mastered}/60`;
+    const hf = document.getElementById('homeStatFav');
+    if (hf) hf.textContent = `⭐ 즐겨찾기: ${fav}개`;
+    const hh = document.getElementById('homeStatHard');
+    if (hh) hh.textContent = `🔥 복습: ${hard}개`;
+  }
+
+  // =========================================================================
+  // 3. 음성 합성 (일본어 TTS - 히라가나 발음 기준)
+  // =========================================================================
+  function speakJapanese(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP';
+    u.rate = 0.9;
+    const voices = window.speechSynthesis.getVoices();
+    const jpVoice = voices.find(v => v.lang.includes('ja') || v.lang.includes('JP'));
+    if (jpVoice) u.voice = jpVoice;
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakWordById(id) {
+    const item = ADJECTIVES.find(a => a.id === Number(id));
+    if (item) speakJapanese(item.kana);
+  }
+
+  // =========================================================================
+  // 4. 화면 네비게이션
+  // =========================================================================
+  let activeScreen = 'home';
+  const SCREEN_TITLES = {
+    home: '히라가나 형용사 60 마스터',
+    table: '히라가나 형용사 60선 표',
+    flashcard: '히라가나 플래시카드',
+    stroke: '히라가나 따라 쓰기 연습',
+    mnemonic: '연상 암기법 & 예문 학습',
+    quiz: '퀴즈 및 미니게임',
+    imagegame: '그림 보고 히라가나 조합',
+    stats: '학습 현황 & 즐겨찾기 단어장'
+  };
+
+  function navigate(target) {
+    stopTimeAttackTimer();
+    activeScreen = target;
+    document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+    const screenEl = document.getElementById(`screen-${target}`);
+    if (screenEl) screenEl.classList.add('active');
+
+    document.getElementById('headerTitle').textContent = SCREEN_TITLES[target] || '히라가나 형용사 마스터';
+    document.getElementById('btnBack').style.display = target === 'home' ? 'none' : 'flex';
+
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.target === target);
+    });
+
+    if (target === 'home') updateGlobalHeader();
+    if (target === 'table') renderTable();
+    if (target === 'flashcard') initFlashcards();
+    if (target === 'stroke') initStrokeScreen();
+    if (target === 'mnemonic') initMnemonicScreen();
+    if (target === 'quiz') startQuizMode('kana2kr');
+    if (target === 'imagegame') initImageGame();
+    if (target === 'stats') renderStatsScreen();
+    window.scrollTo(0, 0);
+  }
+
+  // =========================================================================
+  // 5. 히라가나 중심 도감 표 & 상세 학습 모달
+  // =========================================================================
+  let currentTableFilter = 'all';
+  let currentModalId = 1;
+
+  function setTableFilter(filter, btnEl) {
+    currentTableFilter = filter;
+    if (btnEl) {
+      btnEl.parentElement.querySelectorAll('.tab-chip').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+    }
+    renderTable();
+  }
+
+  function getStatusMeta(status) {
+    if (status === 'mastered') return { cls: 'status-mastered', tileCls: 'tile-mastered', label: '✅ 암기' };
+    if (status === 'hard') return { cls: 'status-hard', tileCls: 'tile-hard', label: '🔥 어려움' };
+    return { cls: 'status-unlearned', tileCls: '', label: '⚪ 미학습' };
+  }
+
+  function renderTable() {
+    const grid = document.getElementById('adjTableGrid');
+    const filtered = ADJECTIVES.filter(item => {
+      const rec = getWordRecord(item.id);
+      if (currentTableFilter === 'fav') return rec.fav;
+      if (currentTableFilter === 'i') return item.type === 'i';
+      if (currentTableFilter === 'na') return item.type === 'na';
+      if (currentTableFilter === 'unlearned') return rec.status === 'unlearned';
+      if (currentTableFilter === 'hard') return rec.status === 'hard';
+      if (currentTableFilter === 'mastered') return rec.status === 'mastered';
+      return true;
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="card-box" style="grid-column:span 2; text-align:center; color:var(--text-sub);">해당 조건의 형용사가 없습니다. ☆ 버튼을 눌러 즐겨찾기를 추가해 보세요!</div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(item => {
+      const rec = getWordRecord(item.id);
+      const meta = getStatusMeta(rec.status);
+      return `
+        <div class="adj-tile ${meta.tileCls}" onclick="openDetailModal(${item.id})">
+          <div class="tile-top">
+            <span class="type-tag">${item.type === 'i' ? 'い형용사' : 'な형용사'}</span>
+            <div style="display:flex; align-items:center; gap:4px;">
+              <span class="status-pill ${meta.cls}">${meta.label}</span>
+              <button class="fav-btn" onclick="toggleTileFav(event, ${item.id})" title="즐겨찾기">${rec.fav ? '⭐' : '☆'}</button>
+            </div>
+          </div>
+          <!-- 히라가나가 가장 크게 표시 -->
+          <div class="tile-kana-main jp" lang="ja">${item.kana}</div>
+          <!-- 아래에 한자와 로마자 병기 -->
+          <div class="tile-kanji-sub jp" lang="ja">${item.kanji} [${item.romaji}]</div>
+          <div class="tile-meaning">${item.emoji} ${item.meaning}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function toggleTileFav(e, id) {
+    e.stopPropagation();
+    toggleFavById(id, renderTable);
+  }
+
+  // 히라가나 중심 어미 활용 생성기
+  function buildConjugations(item) {
+    if (item.type === 'i') {
+      const base = item.id === 8 ? 'よい' : item.kana;
+      const stem = base.slice(0, -1);
+      return [
+        { label: '기본형 (사전형)', val: `${item.kana} (${item.kanji})` },
+        { label: '명사 수식 (~한)', val: `${item.kana} + 명사` },
+        { label: '정중 현재 (~입니다)', val: `${item.kana}です` },
+        { label: '정중 부정 (~않습니다)', val: `${stem}くないです` },
+        { label: '정중 과거 (~였습니다)', val: `${stem}かったです` },
+        { label: '과거 부정 (~않았습니다)', val: `${stem}くなかったです` }
+      ];
+    } else {
+      const stemKana = item.kana.replace(/だ$/, '');
+      const stemKanji = item.kanji.replace(/だ$/, '');
+      return [
+        { label: '기본형 (사전형)', val: `${item.kana} (${item.kanji})` },
+        { label: '명사 수식 (~한)', val: `${stemKana}な (${stemKanji}な) + 명사` },
+        { label: '정중 현재 (~입니다)', val: `${stemKana}です` },
+        { label: '정중 부정 (~않습니다)', val: `${stemKana}じゃありません` },
+        { label: '정중 과거 (~였습니다)', val: `${stemKana}でした` },
+        { label: '과거 부정 (~않았습니다)', val: `${stemKana}じゃありませんでした` }
+      ];
+    }
+  }
+
+  function openDetailModal(id) {
+    currentModalId = Number(id);
+    const item = ADJECTIVES.find(a => a.id === currentModalId);
+    if (!item) return;
+
+    document.getElementById('modalTypeTag').textContent = `${item.id}번 · ${item.type === 'i' ? 'い형용사' : 'な형용사'}`;
+    document.getElementById('modalKanaMain').textContent = item.kana;
+    document.getElementById('modalKanjiSub').textContent = `한자 표기: ${item.kanji} [${item.romaji}]`;
+    document.getElementById('modalMeaning').textContent = `${item.emoji} ${item.meaning}`;
+
+    document.getElementById('modalMnemonicBox').innerHTML = `
+      <strong>💡 발음·모양 연상 암기법:</strong><br>${item.mnemonic}
+    `;
+    document.getElementById('modalExampleBox').innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <strong>📘 히라가나 표현 & 초보자 예문</strong>
+        <button class="btn btn-outline" style="padding:3px 8px; font-size:0.75rem;" onclick="speakJapanese('${item.exJp}')">🔊 예문 듣기</button>
+      </div>
+      <div class="jp" lang="ja" style="margin-top:6px; font-weight:800; color:var(--primary);">${item.wordJp} — ${item.wordKr}</div>
+      <div class="jp" lang="ja" style="margin-top:4px; font-weight:700;">${item.exJp}</div>
+      <div style="color:var(--text-sub); font-size:0.82rem;">${item.exKr}</div>
+    `;
+
+    const conjs = buildConjugations(item);
+    document.getElementById('modalConjTable').innerHTML = conjs.map(c => `
+      <tr><th>${c.label}</th><td><strong>${c.val}</strong></td></tr>
+    `).join('');
+
+    updateModalButtons();
+    document.getElementById('detailModal').classList.add('open');
+  }
+
+  function updateModalButtons() {
+    const rec = getWordRecord(currentModalId);
+    document.getElementById('modalFavBtn').textContent = rec.fav ? '⭐ 즐겨찾기됨 (F)' : '☆ 즐겨찾기 (F)';
+
+    const bUn = document.getElementById('modalBtnUnlearned');
+    const bHa = document.getElementById('modalBtnHard');
+    const bMa = document.getElementById('modalBtnMastered');
+    [bUn, bHa, bMa].forEach(b => { b.style.borderWidth = '1px'; b.style.background = '#fff'; });
+    if (rec.status === 'unlearned') { bUn.style.borderWidth = '2px'; bUn.style.background = '#f3f4f6'; }
+    if (rec.status === 'hard') { bHa.style.borderWidth = '2px'; bHa.style.background = '#fef3c7'; }
+    if (rec.status === 'mastered') { bMa.style.borderWidth = '2px'; bMa.style.background = '#d1fae5'; }
+  }
+
+  function toggleFavFromModal() {
+    toggleFavById(currentModalId, () => {
+      updateModalButtons();
+      if (activeScreen === 'table') renderTable();
+      if (activeScreen === 'stats') renderStatsScreen();
+    });
+  }
+
+  function setWordStatusFromModal(newStatus) {
+    getWordRecord(currentModalId).status = newStatus;
+    saveState();
+    updateModalButtons();
+    if (activeScreen === 'table') renderTable();
+    if (activeScreen === 'stats') renderStatsScreen();
+  }
+
+  function closeDetailModal(e) {
+    if (!e || e.target.id === 'detailModal') {
+      document.getElementById('detailModal').classList.remove('open');
+    }
+  }
+
+  function goFromModalTo(targetScreen) {
+    const id = currentModalId;
+    document.getElementById('detailModal').classList.remove('open');
+    if (targetScreen === 'mnemonic') {
+      currentMnemId = id;
+      navigate('mnemonic');
+    } else if (targetScreen === 'stroke') {
+      currentStrokeId = id;
+      navigate('stroke');
+    }
+  }
+
+  // =========================================================================
+  // 6. 플래시카드 학습 (히라가나 보고 암기 + 즐겨찾기 모드)
+  // =========================================================================
+  let fcDeck = [];
+  let fcIndex = 0;
+
+  function shuffleArray(arr) {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function initFlashcards() {
+    const mode = document.getElementById('fcModeSelect').value;
+    if (mode === 'fav') {
+      fcDeck = ADJECTIVES.filter(a => getWordRecord(a.id).fav);
+    } else if (mode === 'unlearned') {
+      fcDeck = ADJECTIVES.filter(a => getWordRecord(a.id).status === 'unlearned');
+    } else if (mode === 'hard') {
+      fcDeck = ADJECTIVES.filter(a => getWordRecord(a.id).status === 'hard');
+    } else if (mode === 'mastered') {
+      fcDeck = ADJECTIVES.filter(a => getWordRecord(a.id).status === 'mastered');
+    } else {
+      fcDeck = [...ADJECTIVES];
+    }
+
+    if (fcDeck.length === 0) {
+      alert('선택한 조건의 단어가 없어 전체 60개 히라가나 카드로 시작합니다.');
+      document.getElementById('fcModeSelect').value = 'kana_only';
+      fcDeck = [...ADJECTIVES];
+    }
+    fcIndex = 0;
+    renderFlashcard();
+  }
+
+  function shuffleFlashcards() {
+    fcDeck = shuffleArray(fcDeck);
+    fcIndex = 0;
+    renderFlashcard();
+  }
+
+  function renderFlashcard() {
+    const inner = document.getElementById('fcInner');
+    inner.classList.remove('flipped');
+
+    const item = fcDeck[fcIndex];
+    const rec = getWordRecord(item.id);
+    const meta = getStatusMeta(rec.status);
+    const mode = document.getElementById('fcModeSelect').value;
+
+    document.getElementById('fcCounter').textContent = `${fcIndex + 1} / ${fcDeck.length}`;
+    document.getElementById('fcTypeTag').textContent = item.type === 'i' ? 'い형용사' : 'な형용사';
+    const badge = document.getElementById('fcStatusBadge');
+    badge.className = `status-pill ${meta.cls}`;
+    badge.textContent = meta.label;
+
+    document.getElementById('fcFavBtn').textContent = rec.fav ? '⭐ 즐겨찾기됨 (F)' : '☆ 즐겨찾기 (F)';
+
+    const frontMain = document.getElementById('fcFrontMain');
+    const frontSub = document.getElementById('fcFrontSub');
+
+    if (mode === 'kana_only' || mode === 'fav' || mode === 'hard' || mode === 'unlearned' || mode === 'mastered') {
+      // 앞면에 히라가나만 크게 표시하여 히라가나로 단어를 암기
+      frontMain.textContent = item.kana;
+      frontSub.textContent = `[${item.romaji}]`;
+    } else if (mode === 'kana_with_kanji') {
+      // 히라가나 크게 + 아래에 한자 작게 표시
+      frontMain.textContent = item.kana;
+      frontSub.textContent = `한자: ${item.kanji} [${item.romaji}]`;
+    } else if (mode === 'kr_to_kana') {
+      // 한국어 뜻을 보고 히라가나 떠올리기
+      frontMain.textContent = `${item.emoji} ${item.meaning}`;
+      frontSub.textContent = `${item.type === 'i' ? 'い형용사' : 'な형용사'} (히라가나로 무엇일까요?)`;
+    } else if (mode === 'kanji_to_kana') {
+      // 한자를 보고 히라가나 읽기와 뜻 맞히기
+      frontMain.textContent = item.kanji;
+      frontSub.textContent = '히라가나 읽는 법과 뜻을 떠올려 보세요';
+    }
+
+    document.getElementById('fcBackEmoji').textContent = item.emoji;
+    document.getElementById('fcBackKana').textContent = item.kana;
+    document.getElementById('fcBackKanji').textContent = `한자 표기: ${item.kanji} [${item.romaji}]`;
+    document.getElementById('fcBackMeaning').textContent = item.meaning;
+    document.getElementById('fcBackMnemonic').textContent = `💡 ${item.mnemonic}`;
+  }
+
+  function flipFlashcard() {
+    document.getElementById('fcInner').classList.toggle('flipped');
+  }
+
+  function speakCurrentFC(e) {
+    if (e) e.stopPropagation();
+    const item = fcDeck[fcIndex];
+    if (item) speakJapanese(item.kana);
+  }
+
+  function toggleCurrentFCFav(e) {
+    if (e) e.stopPropagation();
+    const item = fcDeck[fcIndex];
+    if (!item) return;
+    toggleFavById(item.id, renderFlashcard);
+  }
+
+  function markFlashcard(status) {
+    const item = fcDeck[fcIndex];
+    const rec = getWordRecord(item.id);
+    rec.status = status;
+    if (status === 'mastered') rec.correct++;
+    else rec.wrong++;
+    saveState();
+    moveFlashcard(1);
+  }
+
+  function moveFlashcard(delta) {
+    fcIndex = (fcIndex + delta + fcDeck.length) % fcDeck.length;
+    renderFlashcard();
+  }
+
+  function goToFavFlashcard() {
+    const favCount = ADJECTIVES.filter(a => getWordRecord(a.id).fav).length;
+    if (favCount === 0) {
+      alert('아직 즐겨찾기(⭐)한 단어가 없습니다. 단어 옆의 ☆ 버튼을 눌러 추가해 주세요!');
+      return;
+    }
+    navigate('flashcard');
+    document.getElementById('fcModeSelect').value = 'fav';
+    initFlashcards();
+  }
+
+  // =========================================================================
+  // 7. 히라가나 중심 쓰기 연습 (おおきい 크게 쓰기 + 아래 大きい 표기)
+  // =========================================================================
+  let currentStrokeId = 1;
+  let strokeAnimReq = null;
+  let strokeProgress = 0;
+  let strokePaused = false;
+  let isDrawing = false;
+
+  function initStrokeScreen() {
+    const sel = document.getElementById('strokeWordSelect');
+    sel.innerHTML = ADJECTIVES.map(a => `
+      <option value="${a.id}" ${a.id === currentStrokeId ? 'selected' : ''}>
+        ${a.id}. ${a.kana} (${a.kanji}) - ${a.meaning}
+      </option>
+    `).join('');
+    setupCanvases();
+    selectStrokeWord(currentStrokeId);
+  }
+
+  function renderStrokeFavBtn() {
+    const rec = getWordRecord(currentStrokeId);
+    const btn = document.getElementById('strokeFavBtn');
+    if (btn) btn.textContent = rec.fav ? '⭐' : '☆';
+  }
+
+  function setupCanvases() {
+    const wrap = document.getElementById('strokeCanvasWrap');
+    const gCanvas = document.getElementById('guideCanvas');
+    const dCanvas = document.getElementById('drawCanvas');
+    const rect = wrap.getBoundingClientRect();
+    gCanvas.width = rect.width || 360;
+    gCanvas.height = rect.height || 210;
+    dCanvas.width = rect.width || 360;
+    dCanvas.height = rect.height || 210;
+
+    const dCtx = dCanvas.getContext('2d');
+    dCtx.lineCap = 'round';
+    dCtx.lineJoin = 'round';
+    dCtx.lineWidth = 7;
+    dCtx.strokeStyle = '#4f46e5';
+
+    const getPos = (e) => {
+      const r = dCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - r.left, y: clientY - r.top };
+    };
+
+    dCanvas.onpointerdown = (e) => {
+      isDrawing = true;
+      const p = getPos(e);
+      dCtx.beginPath();
+      dCtx.moveTo(p.x, p.y);
+    };
+    dCanvas.onpointermove = (e) => {
+      if (!isDrawing) return;
+      const p = getPos(e);
+      dCtx.lineTo(p.x, p.y);
+      dCtx.stroke();
+    };
+    dCanvas.onpointerup = () => { isDrawing = false; };
+    dCanvas.onpointerleave = () => { isDrawing = false; };
+  }
+
+  function selectStrokeWord(id) {
+    currentStrokeId = Number(id);
+    const sel = document.getElementById('strokeWordSelect');
+    if (sel) sel.value = currentStrokeId;
+
+    const item = ADJECTIVES.find(a => a.id === currentStrokeId);
+    // 캔버스 아래에 한자(大きい)와 뜻 표시
+    document.getElementById('strokeUnderKanji').textContent = item.kanji;
+    document.getElementById('strokeUnderMeaning').textContent = `${item.emoji} ${item.meaning}`;
+    document.getElementById('strokeUnderRomaji').textContent = `[${item.romaji}]`;
+
+    renderStrokeFavBtn();
+    clearUserDrawing();
+    replayStrokeAnim();
+  }
+
+  function stepStrokeWord(delta) {
+    const nextId = ((currentStrokeId - 1 + delta + ADJECTIVES.length) % ADJECTIVES.length) + 1;
+    selectStrokeWord(nextId);
+  }
+
+  // 캔버스 중앙에 히라가나(おおきい)를 크게 렌더링
+  function drawGuideBase(item, revealRatio = 1) {
+    const gCanvas = document.getElementById('guideCanvas');
+    const ctx = gCanvas.getContext('2d');
+    const w = gCanvas.width;
+    const h = gCanvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    // 가이드 점선
+    ctx.strokeStyle = '#e5e7eb';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2);
+    ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 히라가나 글자 길이에 맞춘 큼직한 폰트 크기 계산
+    const kanaText = item.kana;
+    const len = kanaText.length;
+    const fontSize = len <= 3 ? 76 : (len === 4 ? 64 : (len === 5 ? 52 : 44));
+    ctx.font = `900 ${fontSize}px "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // 연한 회색 밑글씨 (히라가나)
+    ctx.fillStyle = '#e5e7eb';
+    ctx.fillText(kanaText, w / 2, h / 2);
+
+    // 획순 애니메이션 하이라이트 (좌→우 순차 채우기)
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, 0, w * revealRatio, h);
+    ctx.clip();
+    ctx.fillStyle = 'rgba(79, 70, 229, 0.28)';
+    ctx.fillText(kanaText, w / 2, h / 2);
+    ctx.restore();
+  }
+
+  function playStrokeAnim() {
+    cancelAnimationFrame(strokeAnimReq);
+    strokePaused = false;
+    const item = ADJECTIVES.find(a => a.id === currentStrokeId);
+    if (strokeProgress >= 1) strokeProgress = 0;
+
+    function step() {
+      if (strokePaused) return;
+      strokeProgress += 0.012;
+      if (strokeProgress > 1) strokeProgress = 1;
+      drawGuideBase(item, strokeProgress);
+      if (strokeProgress < 1) {
+        strokeAnimReq = requestAnimationFrame(step);
+      }
+    }
+    strokeAnimReq = requestAnimationFrame(step);
+  }
+
+  function togglePauseStrokeAnim() {
+    strokePaused = !strokePaused;
+    if (!strokePaused) playStrokeAnim();
+  }
+
+  function replayStrokeAnim() {
+    strokeProgress = 0;
+    playStrokeAnim();
+  }
+
+  function clearUserDrawing() {
+    const dCanvas = document.getElementById('drawCanvas');
+    const ctx = dCanvas.getContext('2d');
+    ctx.clearRect(0, 0, dCanvas.width, dCanvas.height);
+  }
+
+  // =========================================================================
+  // 8. 연상 암기법 & 예문 화면 (히라가나 최우선)
+  // =========================================================================
+  let currentMnemId = 1;
+
+  function initMnemonicScreen() {
+    const sel = document.getElementById('mnemWordSelect');
+    sel.innerHTML = ADJECTIVES.map(a => `
+      <option value="${a.id}" ${a.id === currentMnemId ? 'selected' : ''}>
+        ${a.id}. ${a.kana} (${a.kanji}) - ${a.meaning}
+      </option>
+    `).join('');
+    renderMnemonicScreen(currentMnemId);
+  }
+
+  function renderMnemonicScreen(id) {
+    currentMnemId = Number(id);
+    const item = ADJECTIVES.find(a => a.id === currentMnemId);
+    const rec = getWordRecord(currentMnemId);
+    const favBtn = document.getElementById('mnemFavBtn');
+    if (favBtn) favBtn.textContent = rec.fav ? '⭐' : '☆';
+
+    const box = document.getElementById('mnemContentBox');
+    box.innerHTML = `
+      <div style="text-align:center; padding-bottom:12px; border-bottom:1px solid var(--border);">
+        <div style="font-size:3rem;">${item.emoji}</div>
+        <!-- 히라가나가 크게 상단에 -->
+        <div class="jp" lang="ja" style="font-size:2.3rem; font-weight:900; color:var(--primary);">${item.kana}</div>
+        <!-- 한자는 아래에 작게 -->
+        <div class="jp" lang="ja" style="font-size:1rem; font-weight:700; color:var(--text-sub); margin-top:2px;">한자 표기: ${item.kanji} [${item.romaji}]</div>
+        <div style="font-size:1.25rem; font-weight:900; margin-top:6px;">뜻: ${item.meaning}</div>
+        <button class="btn btn-outline" style="margin-top:8px;" onclick="speakJapanese('${item.kana}')">🔊 발음 듣기 (S)</button>
+      </div>
+
+      <div style="margin-top:12px; background:#eef2ff; padding:14px; border-radius:12px;">
+        <div style="font-weight:800; color:var(--primary-dark); margin-bottom:4px;">💡 히라가나 발음·모양 연상 암기법</div>
+        <div style="font-size:0.92rem; line-height:1.5;">${item.mnemonic}</div>
+      </div>
+
+      <div style="margin-top:12px; background:#f8fafc; padding:14px; border-radius:12px; border:1px solid var(--border);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-weight:800;">📘 초보자용 히라가나 단어 & 예문</span>
+          <button class="btn btn-outline" style="padding:4px 10px; font-size:0.78rem;" onclick="speakJapanese('${item.exJp}')">🔊 예문 듣기</button>
+        </div>
+        <div class="jp" lang="ja" style="font-size:1.05rem; font-weight:800; color:var(--primary); margin-top:8px;">• ${item.wordJp} : ${item.wordKr}</div>
+        <div class="jp" lang="ja" style="font-size:0.98rem; font-weight:700; margin-top:6px;">• ${item.exJp}</div>
+        <div style="font-size:0.85rem; color:var(--text-sub); margin-top:2px;">→ ${item.exKr}</div>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button class="btn btn-outline btn-block" onclick="stepMnemonic(-1)">◀ 이전 단어 (←)</button>
+        <button class="btn btn-outline btn-block" onclick="stepMnemonic(1)">다음 단어 (→) ▶</button>
+      </div>
+    `;
+
+    const others = shuffleArray(ADJECTIVES.filter(a => a.id !== item.id)).slice(0, 2);
+    const choices = shuffleArray([item, ...others]);
+    const qBox = document.getElementById('mnemQuizBox');
+    qBox.innerHTML = `
+      <div style="font-weight:800; font-size:0.92rem; margin-bottom:8px;">✅ 미니 퀴즈: "<span class="jp" lang="ja">${item.kana}</span> (${item.kanji})"의 뜻은?</div>
+      <div style="display:grid; gap:8px;">
+        ${choices.map((c, idx) => `
+          <button class="quiz-opt-btn" onclick="checkMiniMnemQuiz(this, ${c.id === item.id})">
+            <span>${idx + 1}. ${c.emoji} ${c.meaning}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function checkMiniMnemQuiz(btn, isCorrect) {
+    btn.parentElement.querySelectorAll('.quiz-opt-btn').forEach(b => b.disabled = true);
+    if (isCorrect) {
+      btn.classList.add('correct');
+      btn.innerHTML += ' <span>⭕ 정답!</span>';
+    } else {
+      btn.classList.add('wrong');
+      btn.innerHTML += ' <span>❌ 다시 확인!</span>';
+    }
+  }
+
+  function stepMnemonic(delta) {
+    currentMnemId = ((currentMnemId - 1 + delta + ADJECTIVES.length) % ADJECTIVES.length) + 1;
+    document.getElementById('mnemWordSelect').value = currentMnemId;
+    renderMnemonicScreen(currentMnemId);
+  }
+
+  // =========================================================================
+  // 9. 퀴즈 및 미니게임 (히라가나 중심 + 즐겨찾기 퀴즈 + 숫자키 1~4 단축키)
+  // =========================================================================
+  let currentQuizMode = 'kana2kr';
+  let quizQuestions = [];
+  let quizIdx = 0;
+  let quizSessionCorrect = 0;
+  let quizSessionWrongList = [];
+  let timeAttackTimer = null;
+  let timeLeft = 60;
+
+  function stopTimeAttackTimer() {
+    if (timeAttackTimer) {
+      clearInterval(timeAttackTimer);
+      timeAttackTimer = null;
+    }
+  }
+
+  function startQuizMode(mode, btnEl) {
+    stopTimeAttackTimer();
+    currentQuizMode = mode;
+    if (btnEl) {
+      btnEl.parentElement.querySelectorAll('.tab-chip').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+    }
+
+    quizIdx = 0;
+    quizSessionCorrect = 0;
+    quizSessionWrongList = [];
+
+    if (mode === 'favonly') {
+      const favPool = ADJECTIVES.filter(a => getWordRecord(a.id).fav);
+      if (favPool.length === 0) {
+        alert('즐겨찾기(⭐)한 단어가 없어 전체 단어에서 출제합니다.');
+        quizQuestions = shuffleArray(ADJECTIVES).slice(0, 10);
+      } else {
+        quizQuestions = shuffleArray(favPool);
+      }
+    } else if (mode === 'hardonly') {
+      const hardPool = ADJECTIVES.filter(a => getWordRecord(a.id).status === 'hard' || getWordRecord(a.id).wrong > 0);
+      quizQuestions = shuffleArray(hardPool.length >= 4 ? hardPool : ADJECTIVES).slice(0, 10);
+    } else if (mode === 'timeattack') {
+      quizQuestions = shuffleArray(ADJECTIVES);
+      timeLeft = 60;
+      timeAttackTimer = setInterval(() => {
+        timeLeft--;
+        const timerEl = document.getElementById('taTimerDisplay');
+        if (timerEl) timerEl.textContent = `⏱️ ${timeLeft}초`;
+        if (timeLeft <= 0) {
+          stopTimeAttackTimer();
+          renderQuizResult();
+        }
+      }, 1000);
+    } else {
+      quizQuestions = shuffleArray(ADJECTIVES).slice(0, 10);
+    }
+
+    renderQuizQuestion();
+  }
+
+  function renderQuizQuestion() {
+    if (quizIdx >= quizQuestions.length) {
+      stopTimeAttackTimer();
+      renderQuizResult();
+      return;
+    }
+
+    const q = quizQuestions[quizIdx];
+    const distractors = shuffleArray(ADJECTIVES.filter(a => a.id !== q.id)).slice(0, 3);
+    const options = shuffleArray([q, ...distractors]);
+    const area = document.getElementById('quizPlayArea');
+
+    const isKrToKana = currentQuizMode === 'kr2kana';
+    const promptTitle = isKrToKana
+      ? `다음 한국어 뜻에 알맞은 히라가나 형용사는?`
+      : `다음 히라가나 형용사의 알맞은 한국어 뜻은?`;
+
+    const promptMain = isKrToKana
+      ? `${q.emoji} ${q.meaning}`
+      : `<div class="jp" lang="ja" style="font-size:2.2rem; font-weight:900; color:var(--primary);">${q.kana}</div>
+         <div class="jp" lang="ja" style="font-size:0.95rem; color:var(--text-sub); margin-top:4px;">참고 한자: ${q.kanji} [${q.romaji}]</div>`;
+
+    area.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:0.86rem; font-weight:800; color:var(--text-sub);">
+        <span>문제 ${quizIdx + 1} ${currentQuizMode === 'timeattack' ? '' : `/ ${quizQuestions.length}`}</span>
+        ${currentQuizMode === 'timeattack' ? `<span id="taTimerDisplay" style="color:var(--danger);">⏱️ ${timeLeft}초</span>` : ''}
+        <span>⭕ ${quizSessionCorrect}점</span>
+      </div>
+
+      <div style="text-align:center; padding:16px 10px; background:#f8fafc; border-radius:14px; border:1px solid var(--border);">
+        <div style="font-size:0.82rem; color:var(--text-sub); margin-bottom:6px;">${promptTitle}</div>
+        <div>${promptMain}</div>
+      </div>
+
+      <div class="quiz-options" id="currentQuizOptions">
+        ${options.map((opt, idx) => `
+          <button class="quiz-opt-btn jp" lang="ja" data-opt-index="${idx + 1}" onclick="submitQuizOption(this, ${opt.id === q.id}, ${q.id})">
+            <span><strong>${idx + 1}.</strong> ${isKrToKana ? `${opt.kana} <small style="color:var(--text-sub);">(${opt.kanji})</small>` : `${opt.emoji} ${opt.meaning}`}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function submitQuizOption(btn, isCorrect, questionId) {
+    const allBtns = btn.parentElement.querySelectorAll('.quiz-opt-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    const rec = getWordRecord(questionId);
+    userState.quizTotal++;
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      quizSessionCorrect++;
+      userState.quizCorrect++;
+      rec.correct++;
+    } else {
+      btn.classList.add('wrong');
+      rec.wrong++;
+      rec.status = 'hard';
+      const item = ADJECTIVES.find(a => a.id === questionId);
+      if (!quizSessionWrongList.some(w => w.id === item.id)) {
+        quizSessionWrongList.push(item);
+      }
+    }
+    saveState();
+
+    setTimeout(() => {
+      quizIdx++;
+      renderQuizQuestion();
+    }, 600);
+  }
+
+  function renderQuizResult() {
+    const totalAnswered = currentQuizMode === 'timeattack' ? (quizSessionCorrect + quizSessionWrongList.length) : quizQuestions.length;
+    const rate = totalAnswered > 0 ? Math.round((quizSessionCorrect / totalAnswered) * 100) : 0;
+    if (currentQuizMode === 'timeattack' && quizSessionCorrect > userState.bestTimeAttack) {
+      userState.bestTimeAttack = quizSessionCorrect;
+      saveState();
+    }
+
+    const area = document.getElementById('quizPlayArea');
+    area.innerHTML = `
+      <div style="text-align:center; padding:12px;">
+        <div style="font-size:2.8rem;">🎉</div>
+        <h3 style="margin:6px 0;">퀴즈 결과 리포트</h3>
+        <div style="font-size:1.1rem; font-weight:800; color:var(--primary); margin-bottom:12px;">
+          정답: ${quizSessionCorrect}개 / 정답률: ${rate}%
+        </div>
+        ${quizSessionWrongList.length > 0 ? `
+          <div style="text-align:left; background:#fffbeb; padding:12px; border-radius:12px; border:1px solid #fcd34d; margin-bottom:14px;">
+            <div style="font-weight:800; color:#b45309; margin-bottom:6px;">🔥 틀린 단어 복습 (클릭 시 상세 학습)</div>
+            ${quizSessionWrongList.map(w => `
+              <div style="padding:6px 0; border-bottom:1px dashed #fde68a; cursor:pointer;" onclick="openDetailModal(${w.id})">
+                <strong class="jp" lang="ja">${w.kana}</strong> <small class="jp" lang="ja">(${w.kanji})</small> — ${w.meaning}
+              </div>
+            `).join('')}
+          </div>
+        ` : `<p style="color:var(--success); font-weight:800;">완벽합니다! 틀린 단어가 하나도 없어요!</p>`}
+        <button class="btn btn-primary btn-block" onclick="startQuizMode('${currentQuizMode}')">🔄 다시 도전하기</button>
+      </div>
+    `;
+  }
+
+  // =========================================================================
+  // 10. 이미지 & 히라가나 조합 맞히기
+  // =========================================================================
+  let imgGameMode = 'tile';
+  let currentImgWord = ADJECTIVES[0];
+  let selectedKanaTiles = [];
+
+  const HIRAGANA_DISTRACTORS = ['あ','い','う','え','お','か','き','く','け','こ','さ','し','す','せ','そ','た','ち','つ','て','と','な','に','ぬ','ね','の','は','ひ','ふ','へ','ほ','ま','み','む','め','も','や','ゆ','よ','ら','り','る','れ','ろ','わ','ん'];
+
+  function initImageGame() {
+    nextImageGameQuestion();
+  }
+
+  function updateImgFavIcon() {
+    const rec = getWordRecord(currentImgWord.id);
+    const btn = document.getElementById('imgGameFavBtn');
+    if (btn) btn.textContent = rec.fav ? '⭐' : '☆';
+  }
+
+  function setImgInputMode(mode) {
+    imgGameMode = mode;
+    document.getElementById('btnImgModeTile').classList.toggle('active', mode === 'tile');
+    document.getElementById('btnImgModeKey').classList.toggle('active', mode === 'keyboard');
+    document.getElementById('imgTileModeUI').style.display = mode === 'tile' ? 'block' : 'none';
+    document.getElementById('imgKeyModeUI').style.display = mode === 'keyboard' ? 'block' : 'none';
+  }
+
+  function nextImageGameQuestion() {
+    currentImgWord = ADJECTIVES[Math.floor(Math.random() * ADJECTIVES.length)];
+    selectedKanaTiles = [];
+    document.getElementById('imgFeedbackBox').style.display = 'none';
+    document.getElementById('imgKeyboardInput').value = '';
+
+    document.getElementById('imgGameEmoji').textContent = currentImgWord.emoji;
+    document.getElementById('imgGamePrompt').textContent = `뜻: ${currentImgWord.meaning}`;
+    document.getElementById('imgGameHint').textContent = `아래 참고 한자: ${currentImgWord.kanji} (${currentImgWord.type === 'i' ? 'い형용사' : 'な형용사'})`;
+
+    updateImgFavIcon();
+    renderImgTileBoard();
+  }
+
+  function renderImgTileBoard() {
+    const targetChars = Array.from(currentImgWord.kana);
+    const extraChars = shuffleArray(HIRAGANA_DISTRACTORS.filter(c => !targetChars.includes(c))).slice(0, Math.max(4, 10 - targetChars.length));
+    const pool = shuffleArray([...targetChars, ...extraChars]);
+
+    document.getElementById('imgAnswerSlots').innerHTML = targetChars.map((_, idx) => `
+      <div class="slot-box">${selectedKanaTiles[idx] || ''}</div>
+    `).join('');
+
+    document.getElementById('imgKanaPool').innerHTML = pool.map(ch => `
+      <button class="kana-key" onclick="pickImgKana('${ch}')">${ch}</button>
+    `).join('');
+  }
+
+  function pickImgKana(ch) {
+    const maxLen = Array.from(currentImgWord.kana).length;
+    if (selectedKanaTiles.length < maxLen) {
+      selectedKanaTiles.push(ch);
+      document.getElementById('imgAnswerSlots').innerHTML = Array.from(currentImgWord.kana).map((_, idx) => `
+        <div class="slot-box">${selectedKanaTiles[idx] || ''}</div>
+      `).join('');
+    }
+  }
+
+  function resetImgTiles() {
+    selectedKanaTiles = [];
+    document.getElementById('imgAnswerSlots').innerHTML = Array.from(currentImgWord.kana).map(() => `<div class="slot-box"></div>`).join('');
+  }
+
+  function checkImgAnswer() {
+    const userInput = imgGameMode === 'tile'
+      ? selectedKanaTiles.join('').trim()
+      : document.getElementById('imgKeyboardInput').value.trim();
+
+    const stemKana = currentImgWord.kana.replace(/だ$/, '');
+    const stemKanji = currentImgWord.kanji.replace(/だ$/, '');
+    const validAnswers = new Set([
+      currentImgWord.kana,
+      currentImgWord.kanji,
+      stemKana,
+      stemKanji,
+      ...(currentImgWord.altAnswers || [])
+    ]);
+
+    const isCorrect = validAnswers.has(userInput);
+    const fb = document.getElementById('imgFeedbackBox');
+    fb.style.display = 'block';
+
+    const rec = getWordRecord(currentImgWord.id);
+    if (isCorrect) {
+      rec.correct++;
+      rec.status = 'mastered';
+      fb.style.background = 'var(--success-bg)';
+      fb.style.color = '#065f46';
+      fb.innerHTML = `⭕ 정답입니다! <strong class="jp" lang="ja">${currentImgWord.kana}</strong> (${currentImgWord.kanji}) — ${currentImgWord.meaning}`;
+      speakJapanese(currentImgWord.kana);
+    } else {
+      rec.wrong++;
+      rec.status = 'hard';
+      fb.style.background = 'var(--danger-bg)';
+      fb.style.color = '#991b1b';
+      fb.innerHTML = `❌ 아쉬워요! 정답은 <strong class="jp" lang="ja">${currentImgWord.kana}</strong> (한자: ${currentImgWord.kanji}) 입니다.`;
+    }
+    saveState();
+  }
+
+  // =========================================================================
+  // 11. 학습 현황 & 즐겨찾기 단어장
+  // =========================================================================
+  function renderStatsScreen() {
+    let mastered = 0, hard = 0, unlearned = 0, favCount = 0;
+    ADJECTIVES.forEach(a => {
+      const rec = getWordRecord(a.id);
+      if (rec.status === 'mastered') mastered++;
+      else if (rec.status === 'hard') hard++;
+      else unlearned++;
+      if (rec.fav) favCount++;
+    });
+
+    document.getElementById('statMasterCount').textContent = `${mastered}개`;
+    document.getElementById('statFavCount').textContent = `${favCount}개`;
+    document.getElementById('statHardCount').textContent = `${hard}개`;
+    document.getElementById('statUnlearnedCount').textContent = `${unlearned}개`;
+
+    const quizRate = userState.quizTotal > 0 ? Math.round((userState.quizCorrect / userState.quizTotal) * 100) : 0;
+    document.getElementById('statQuizSummary').innerHTML = `
+      • 누적 퀴즈 풀이: <strong>${userState.quizTotal}문제</strong> (정답 ${userState.quizCorrect}개, 정답률 ${quizRate}%)<br>
+      • 60초 챌린지 최고 점수: <strong>${userState.bestTimeAttack}점</strong>
+    `;
+
+    // 즐겨찾기 목록
+    const favWords = ADJECTIVES.filter(a => getWordRecord(a.id).fav);
+    const favEl = document.getElementById('statFavList');
+    if (favWords.length === 0) {
+      favEl.innerHTML = `<div style="color:var(--text-sub);">아직 ⭐ 즐겨찾기한 단어가 없습니다. 도감 표나 플래시카드에서 ☆ 버튼을 눌러 추가해 보세요.</div>`;
+    } else {
+      favEl.innerHTML = favWords.map(w => `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); cursor:pointer;" onclick="openDetailModal(${w.id})">
+          <div>
+            <strong class="jp" lang="ja" style="color:var(--primary-dark); font-size:1rem;">${w.kana}</strong>
+            <span class="jp" lang="ja" style="color:var(--text-sub); font-size:0.84rem;">(${w.kanji})</span> — ${w.meaning}
+          </div>
+          <button class="fav-btn" onclick="event.stopPropagation(); toggleFavById(${w.id}, renderStatsScreen)">⭐</button>
+        </div>
+      `).join('');
+    }
+
+    // 자주 틀리는 단어 목록
+    const weakWords = ADJECTIVES
+      .filter(a => getWordRecord(a.id).status === 'hard' || getWordRecord(a.id).wrong > 0)
+      .sort((a, b) => getWordRecord(b.id).wrong - getWordRecord(a.id).wrong);
+
+    const weakEl = document.getElementById('statWeakList');
+    if (weakWords.length === 0) {
+      weakEl.innerHTML = `<div style="color:var(--text-sub);">아직 오답이나 '어려움'으로 표시된 형용사가 없습니다.</div>`;
+    } else {
+      weakEl.innerHTML = weakWords.map(w => {
+        const r = getWordRecord(w.id);
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); cursor:pointer;" onclick="openDetailModal(${w.id})">
+            <div>
+              <strong class="jp" lang="ja">${w.kana}</strong> <small class="jp" lang="ja">(${w.kanji})</small> — ${w.meaning}
+            </div>
+            <span class="status-pill status-hard">오답 ${r.wrong}회</span>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  function resetAllUserData() {
+    if (!confirm('모든 학습 상태, 퀴즈 점수, 즐겨찾기 목록을 초기화하시겠습니까?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    userState = { words: {}, quizTotal: 0, quizCorrect: 0, bestTimeAttack: 0 };
+    loadState();
+    saveState();
+    renderStatsScreen();
+    alert('모든 기록이 초기화되었습니다.');
+  }
+
+  // =========================================================================
+  // 12. 키보드 단축키 모달 및 전역 키보드 이벤트 리스너
+  // =========================================================================
+  function openShortcutModal() {
+    document.getElementById('shortcutModal').classList.add('open');
+  }
+
+  function closeShortcutModal(e) {
+    if (!e || e.target.id === 'shortcutModal') {
+      document.getElementById('shortcutModal').classList.remove('open');
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    // 입력창(input, select, textarea) 포커스 중일 때는 단축키 무시
+    const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+    if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+
+    const detailOpen = document.getElementById('detailModal').classList.contains('open');
+    const shortcutOpen = document.getElementById('shortcutModal').classList.contains('open');
+
+    if (e.key === 'Escape') {
+      if (shortcutOpen) closeShortcutModal();
+      if (detailOpen) closeDetailModal();
+      return;
+    }
+
+    // 상세 모달이 열려 있을 때의 단축키
+    if (detailOpen) {
+      if (e.key.toLowerCase() === 's') { e.preventDefault(); speakWordById(currentModalId); }
+      if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFavFromModal(); }
+      return;
+    }
+
+    // 1. 플래시카드 화면 단축키
+    if (activeScreen === 'flashcard') {
+      if (e.code === 'Space') { e.preventDefault(); flipFlashcard(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); moveFlashcard(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); moveFlashcard(-1); }
+      else if (e.key.toLowerCase() === 's') { e.preventDefault(); speakCurrentFC(); }
+      else if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleCurrentFCFav(); }
+      else if (e.key === '1') { e.preventDefault(); markFlashcard('hard'); }
+      else if (e.key === '2' || e.key.toLowerCase() === 'm') { e.preventDefault(); markFlashcard('mastered'); }
+      else if (e.key.toLowerCase() === 'r') { e.preventDefault(); shuffleFlashcards(); }
+    }
+    // 2. 쓰기 연습 화면 단축키
+    else if (activeScreen === 'stroke') {
+      if (e.code === 'Space') { e.preventDefault(); togglePauseStrokeAnim(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); stepStrokeWord(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); stepStrokeWord(-1); }
+      else if (e.key.toLowerCase() === 'c') { e.preventDefault(); clearUserDrawing(); }
+      else if (e.key.toLowerCase() === 's') { e.preventDefault(); speakWordById(currentStrokeId); }
+      else if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFavById(currentStrokeId, renderStrokeFavBtn); }
+    }
+    // 3. 연상 암기 화면 단축키
+    else if (activeScreen === 'mnemonic') {
+      if (e.key === 'ArrowRight') { e.preventDefault(); stepMnemonic(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); stepMnemonic(-1); }
+      else if (e.key.toLowerCase() === 's') { e.preventDefault(); speakWordById(currentMnemId); }
+      else if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFavById(currentMnemId, () => renderMnemonicScreen(currentMnemId)); }
+    }
+    // 4. 퀴즈 화면 단축키 (1~4번 보기 선택, S키 발음)
+    else if (activeScreen === 'quiz') {
+      if (['1', '2', '3', '4'].includes(e.key)) {
+        const optBtn = document.querySelector(`#currentQuizOptions .quiz-opt-btn[data-opt-index="${e.key}"]`);
+        if (optBtn && !optBtn.disabled) {
+          e.preventDefault();
+          optBtn.click();
+        }
+      } else if (e.key.toLowerCase() === 's') {
+        const q = quizQuestions[quizIdx];
+        if (q) { e.preventDefault(); speakJapanese(q.kana); }
+      }
+    }
+    // 5. 이미지 게임 단축키
+    else if (activeScreen === 'imagegame') {
+      if (e.key === 'ArrowRight') { e.preventDefault(); nextImageGameQuestion(); }
+      else if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFavById(currentImgWord.id, updateImgFavIcon); }
+    }
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadState();
+    updateGlobalHeader();
+  });
+</script>
+</body>
+</html>
